@@ -860,7 +860,7 @@ async function callOpenAI(messages, opts = {}) {
 
   let res;
   try {
-    res = await fetch('https://api.openai.com/v1/chat/completions', {
+    res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
