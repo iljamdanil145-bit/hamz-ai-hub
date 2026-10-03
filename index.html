@@ -60,7 +60,6 @@ ul,ol{list-style:none}
 ::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:20px;border:3px solid transparent;background-clip:content-box}
 ::-webkit-scrollbar-thumb:hover{background:var(--accent);background-clip:content-box}
 
-/* LAYOUT */
 .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 16px}
 .page-wrap{position:relative;z-index:1;min-height:70vh}
 .section{margin-top:44px}
@@ -113,13 +112,13 @@ ul,ol{list-style:none}
 .hero-hint{margin-top:12px;font-size:13px;color:var(--text-mute);min-height:18px}
 
 /* BUTTONS */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 18px;border-radius:11px;font-size:14px;font-weight:600;border:1px solid var(--border);background:var(--card);color:var(--text);transition:all .22s cubic-bezier(.2,.7,.3,1);white-space:nowrap;cursor:pointer}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 18px;border-radius:11px;font-size:14px;font-weight:600;border:1px solid var(--border);background:var(--card);color:var(--text);transition:all .22s cubic-bezier(.2,.7,.3,1);white-space:nowrap;cursor:pointer;min-height:44px}
 .btn:hover{background:var(--card-hover);border-color:var(--border-strong);transform:translateY(-1px)}
 .btn:active{transform:translateY(0) scale(.98)}
 .btn:disabled{opacity:.55;cursor:not-allowed;transform:none}
 .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));border-color:transparent;color:#fff;box-shadow:0 5px 18px rgba(99,102,241,.28)}
 .btn-primary:hover{box-shadow:0 8px 24px rgba(99,102,241,.4);background:linear-gradient(135deg,#7275f5,#9a6ff8)}
-.btn-sm{padding:8px 14px;font-size:13px;border-radius:9px}
+.btn-sm{padding:8px 14px;font-size:13px;border-radius:9px;min-height:36px}
 .btn-danger{color:var(--danger);border-color:rgba(248,113,113,.3)}
 .btn-danger:hover{background:rgba(248,113,113,.1);border-color:rgba(248,113,113,.5)}
 
@@ -155,7 +154,7 @@ ul,ol{list-style:none}
 .empty-state h3{font-size:15.5px;font-weight:650;margin-bottom:5px}
 .empty-state p{font-size:13.4px;color:var(--text-dim)}
 
-/* PAGE HEAD / SEARCH / FILTERS */
+/* PAGE HEAD */
 .page-head{padding:32px 0 6px}
 .page-head h1{font-size:clamp(24px,6vw,34px);font-weight:800;letter-spacing:-.035em;margin-bottom:7px}
 .page-head p{font-size:14px;color:var(--text-dim)}
@@ -252,7 +251,7 @@ html[data-theme="light"] .code-block{background:rgba(16,20,48,.04)}
 
 /* CHAT */
 .chat-shell{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;height:calc(100vh - 180px);min-height:480px;max-height:820px}
-.chat-topbar{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--border);background:rgba(0,0,0,.1)}
+.chat-topbar{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--border);background:rgba(0,0,0,.1);flex-wrap:wrap}
 html[data-theme="light"] .chat-topbar{background:rgba(16,20,48,.02)}
 .chat-title{flex:1;min-width:0;font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .chat-topbar-actions{display:flex;gap:6px;flex-wrap:wrap}
@@ -269,12 +268,24 @@ html[data-theme="light"] .chat-topbar{background:rgba(16,20,48,.02)}
 .msg.assistant .msg-content{background:var(--card-hover);border:1px solid var(--border);border-bottom-left-radius:5px}
 .msg.assistant.error .msg-content{background:rgba(248,113,113,.08);border-color:rgba(248,113,113,.25);color:var(--danger)}
 .msg-actions{display:flex;gap:6px;padding:0 2px;flex-wrap:wrap}
+.msg-attachment{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:9px;background:rgba(0,0,0,.25);border:1px solid var(--border);font-size:12.5px;color:var(--text-dim);max-width:100%}
+html[data-theme="light"] .msg-attachment{background:rgba(16,20,48,.04)}
+.msg-attachment .att-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600;color:var(--text)}
+.msg-attachment img{width:80px;height:80px;object-fit:cover;border-radius:6px}
+
 .chat-input-wrap{border-top:1px solid var(--border);padding:12px;display:flex;flex-direction:column;gap:8px;background:rgba(0,0,0,.1)}
 html[data-theme="light"] .chat-input-wrap{background:rgba(16,20,48,.02)}
 .chat-input-row{display:flex;gap:8px;align-items:flex-end}
 .chat-input-row textarea{flex:1;resize:none;min-height:44px;max-height:180px;overflow-y:auto}
 .chat-input-row button{padding:11px 14px;border-radius:11px;flex-shrink:0;min-height:44px}
-.chat-hint{font-size:11.5px;color:var(--text-mute);padding:0 4px}
+.chat-hint{font-size:11.5px;color:var(--text-mute);padding:0 4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chat-pending{display:flex;gap:8px;flex-wrap:wrap;padding:0 2px}
+.pending-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:9px;background:var(--accent-soft);border:1px solid var(--border);font-size:12px;color:var(--text)}
+.pending-chip img{width:36px;height:36px;object-fit:cover;border-radius:5px}
+.pending-chip .pc-name{max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pending-chip .pc-x{width:18px;height:18px;border-radius:50%;background:rgba(248,113,113,.2);color:var(--danger);display:grid;place-items:center;font-size:11px;cursor:pointer;border:none}
+.attach-btn{width:44px;height:44px;border-radius:11px;border:1px solid var(--border);background:var(--card);display:grid;place-items:center;cursor:pointer;flex-shrink:0;transition:all .2s;color:var(--text-dim)}
+.attach-btn:hover{color:var(--accent-3);border-color:var(--border-strong);background:var(--card-hover)}
 
 /* CHAT LIST */
 .chat-list{display:flex;flex-direction:column;gap:8px;margin-top:18px}
@@ -291,6 +302,7 @@ html[data-theme="light"] .chat-input-wrap{background:rgba(16,20,48,.02)}
 .modal-backdrop.show{opacity:1;pointer-events:auto}
 .modal{background:var(--bg-elev);border:1px solid var(--border);border-radius:16px;width:100%;max-width:520px;max-height:min(90vh,720px);overflow-y:auto;box-shadow:var(--shadow);transform:translateY(20px) scale(.98);transition:transform .28s cubic-bezier(.2,.9,.3,1)}
 .modal-backdrop.show .modal{transform:translateY(0) scale(1)}
+.modal.modal-lg{max-width:680px}
 .modal-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg-elev);z-index:1;border-radius:16px 16px 0 0}
 .modal-head h2{font-size:16.5px;font-weight:700;letter-spacing:-.02em}
 .modal-body{padding:20px}
@@ -311,6 +323,7 @@ html[data-theme="light"] .chat-input-wrap{background:rgba(16,20,48,.02)}
 .info-card code{background:rgba(99,102,241,.12);padding:2px 6px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:12.6px;color:var(--accent-3);word-break:break-all}
 .warn-box{background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.28);border-radius:12px;padding:14px 16px;font-size:13.4px;color:var(--warn);line-height:1.65}
 .warn-box strong{color:#fcd34d}
+.info-box{background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.25);border-radius:12px;padding:14px 16px;font-size:13.4px;color:var(--accent-3);line-height:1.65}
 .feature-list{display:grid;gap:10px;margin-top:14px}
 .feature-list li{display:flex;gap:11px;font-size:13.7px;color:var(--text-dim);line-height:1.6}
 .feature-list li .fi{width:22px;height:22px;border-radius:7px;flex-shrink:0;display:grid;place-items:center;background:var(--accent-soft);font-size:11px;margin-top:1px;color:var(--accent-3);font-weight:700}
@@ -342,12 +355,193 @@ html[data-theme="light"] .chat-input-wrap{background:rgba(16,20,48,.02)}
 .view.active{display:block;animation:viewIn .3s cubic-bezier(.2,.8,.3,1)}
 @keyframes viewIn{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
 
+/* ===== NEW: DROPZONE ===== */
+.dropzone{
+  position:relative;
+  border:2px dashed var(--border-strong);
+  border-radius:var(--radius);
+  padding:36px 20px;
+  text-align:center;
+  cursor:pointer;
+  transition:all .25s;
+  background:var(--card);
+}
+.dropzone:hover,.dropzone.dragover{
+  border-color:var(--accent);
+  background:var(--accent-soft);
+  transform:translateY(-2px);
+}
+.dropzone .dz-icon{font-size:36px;margin-bottom:12px;opacity:.85}
+.dropzone .dz-title{font-size:15.5px;font-weight:650;margin-bottom:6px}
+.dropzone .dz-sub{font-size:13px;color:var(--text-dim)}
+.dropzone input[type=file]{display:none}
+
+/* File info card */
+.file-info-card{
+  display:flex;flex-direction:column;gap:12px;
+  padding:16px;border-radius:14px;background:var(--card);
+  border:1px solid var(--border);
+}
+.file-info-head{display:flex;align-items:center;gap:12px}
+.file-info-head .fic-icon{
+  width:44px;height:44px;border-radius:11px;background:var(--accent-soft);
+  border:1px solid var(--border);display:grid;place-items:center;font-size:20px;flex-shrink:0;
+}
+.file-info-head .fic-text{flex:1;min-width:0}
+.file-info-head .fic-name{font-size:14.5px;font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.file-info-head .fic-ext{font-size:11.8px;color:var(--text-mute);margin-top:2px;text-transform:uppercase;letter-spacing:.04em}
+.file-meta-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+}
+.file-meta-item{
+  padding:10px 12px;border-radius:10px;background:rgba(0,0,0,.18);
+  border:1px solid var(--border);
+}
+html[data-theme="light"] .file-meta-item{background:rgba(16,20,48,.03)}
+.file-meta-item .fm-label{font-size:10.8px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-mute);font-weight:700;margin-bottom:4px}
+.file-meta-item .fm-value{font-size:13.2px;font-weight:600;color:var(--text);word-break:break-word}
+.file-preview{
+  max-height:240px;overflow-y:auto;padding:12px;border-radius:10px;
+  background:rgba(0,0,0,.22);border:1px solid var(--border);
+  font-family:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+  font-size:12.2px;line-height:1.6;color:var(--text-dim);white-space:pre-wrap;word-break:break-word;
+}
+html[data-theme="light"] .file-preview{background:rgba(16,20,48,.04)}
+.image-preview{
+  display:flex;align-items:center;justify-content:center;
+  padding:12px;border-radius:12px;background:rgba(0,0,0,.22);border:1px solid var(--border);
+  max-height:400px;overflow:hidden;
+}
+html[data-theme="light"] .image-preview{background:rgba(16,20,48,.04)}
+.image-preview img{
+  max-width:100%;max-height:360px;border-radius:8px;object-fit:contain;
+}
+
+/* ===== NEW: WORKFLOW ===== */
+.workflow-shell{display:grid;gap:16px}
+.wf-toolbar{
+  display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+  padding:12px;border-radius:14px;background:var(--card);border:1px solid var(--border);
+}
+.wf-toolbar .wf-name-input{
+  flex:1;min-width:140px;padding:9px 12px;border-radius:9px;
+  background:rgba(0,0,0,.18);border:1px solid var(--border);
+  font-size:13.5px;font-weight:600;outline:none;
+}
+html[data-theme="light"] .wf-toolbar .wf-name-input{background:rgba(16,20,48,.03)}
+.wf-toolbar .wf-name-input:focus{border-color:var(--ring);box-shadow:0 0 0 3px rgba(99,102,241,.11)}
+
+.wf-canvas{
+  display:flex;flex-direction:column;gap:10px;
+  padding:16px;border-radius:var(--radius);background:var(--card);border:1px solid var(--border);
+  overflow-x:auto;
+}
+.wf-empty{
+  text-align:center;padding:44px 20px;color:var(--text-mute);font-size:13.6px;
+}
+.wf-empty .wf-e-icon{font-size:32px;opacity:.5;margin-bottom:10px}
+.wf-empty h3{font-size:15px;font-weight:650;color:var(--text-dim);margin-bottom:6px}
+
+.wf-node{
+  position:relative;
+  display:flex;align-items:flex-start;gap:12px;
+  padding:14px;border-radius:13px;
+  background:var(--bg-elev);border:1px solid var(--border);
+  transition:all .22s;min-width:260px;
+}
+.wf-node:hover{border-color:var(--border-strong)}
+.wf-node.dragging{opacity:.5}
+.wf-node.success{border-color:rgba(52,211,153,.4)}
+.wf-node.running{border-color:var(--accent);box-shadow:0 0 0 3px rgba(99,102,241,.15)}
+.wf-node.error{border-color:rgba(248,113,113,.5);background:rgba(248,113,113,.04)}
+.wf-node .wf-step-num{
+  width:28px;height:28px;border-radius:9px;background:var(--accent-soft);border:1px solid var(--border);
+  display:grid;place-items:center;font-size:12.5px;font-weight:700;color:var(--accent-3);flex-shrink:0;
+}
+.wf-node .wf-body{flex:1;min-width:0}
+.wf-node .wf-title{font-size:14px;font-weight:650;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.wf-node .wf-title .wf-type-chip{
+  font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+  padding:2px 7px;border-radius:100px;background:rgba(99,102,241,.15);color:var(--accent-3);
+}
+.wf-node .wf-preview{
+  font-size:12.3px;color:var(--text-mute);margin-top:5px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  word-break:break-word;
+}
+.wf-node .wf-actions{
+  display:flex;gap:4px;flex-shrink:0;flex-wrap:wrap;
+}
+.wf-node .wf-actions button{
+  width:30px;height:30px;border-radius:8px;display:grid;place-items:center;
+  color:var(--text-mute);background:transparent;border:1px solid transparent;cursor:pointer;transition:all .18s;
+}
+.wf-node .wf-actions button:hover{background:var(--card-hover);color:var(--text);border-color:var(--border)}
+.wf-node .wf-actions button.wf-del:hover{color:var(--danger);background:rgba(248,113,113,.1);border-color:rgba(248,113,113,.3)}
+.wf-node .wf-connector{
+  position:absolute;left:50%;bottom:-14px;transform:translateX(-50%);
+  width:2px;height:14px;background:var(--border-strong);
+}
+.wf-node:last-child .wf-connector{display:none}
+
+.wf-add-row{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:10px;flex-wrap:wrap;
+}
+.wf-add-row select{
+  padding:9px 30px 9px 12px;border-radius:9px;font-size:13px;
+  background:var(--card);border:1px solid var(--border);color:var(--text);
+  appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236b7186' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 10px center;
+}
+
+.wf-run-panel{
+  display:flex;flex-direction:column;gap:12px;
+  padding:16px;border-radius:var(--radius);background:var(--card);border:1px solid var(--border);
+}
+.wf-progress{
+  display:flex;flex-direction:column;gap:8px;
+  padding:14px;border-radius:12px;background:rgba(0,0,0,.15);border:1px solid var(--border);
+}
+html[data-theme="light"] .wf-progress{background:rgba(16,20,48,.03)}
+.wf-progress-step{
+  display:flex;align-items:center;gap:10px;padding:8px 10px;
+  border-radius:9px;font-size:13px;color:var(--text-dim);
+  transition:background .2s;
+}
+.wf-progress-step .wps-icon{
+  width:22px;height:22px;border-radius:50%;display:grid;place-items:center;
+  font-size:11px;font-weight:800;flex-shrink:0;
+  border:2px solid var(--border-strong);color:var(--text-mute);
+}
+.wf-progress-step.pending .wps-icon{background:transparent}
+.wf-progress-step.running{background:var(--accent-soft);color:var(--text)}
+.wf-progress-step.running .wps-icon{background:var(--accent);color:#fff;border-color:var(--accent);animation:spin 1s linear infinite}
+.wf-progress-step.success{color:var(--success)}
+.wf-progress-step.success .wps-icon{background:rgba(52,211,153,.2);border-color:var(--success);color:var(--success)}
+.wf-progress-step.error{color:var(--danger);background:rgba(248,113,113,.08)}
+.wf-progress-step.error .wps-icon{background:rgba(248,113,113,.2);border-color:var(--danger);color:var(--danger)}
+
+.wf-step-output{
+  margin-top:8px;padding:10px 12px;border-radius:9px;background:rgba(0,0,0,.22);
+  border:1px solid var(--border);font-size:12.6px;line-height:1.6;color:var(--text-dim);
+  max-height:200px;overflow-y:auto;white-space:pre-wrap;word-break:break-word;
+  font-family:'JetBrains Mono',ui-monospace,monospace;
+}
+html[data-theme="light"] .wf-step-output{background:rgba(16,20,48,.03)}
+
+/* Workflow node editor modal */
+.wf-editor-row{display:grid;grid-template-columns:1fr;gap:10px}
+.wf-editor-row-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
 /* RESPONSIVE */
 @media (min-width:560px){
   .container{padding:0 22px}
   .tool-grid{grid-template-columns:repeat(2,1fr)}
   .cat-grid{grid-template-columns:repeat(3,1fr)}
   .footer-cols{grid-template-columns:repeat(3,1fr)}
+  .file-meta-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media (min-width:760px){
   body{font-size:15.5px}
@@ -360,6 +554,7 @@ html[data-theme="light"] .chat-input-wrap{background:rgba(16,20,48,.02)}
   .footer-bottom{flex-direction:row;justify-content:space-between;text-align:left}
   .chat-body{padding:20px}
   .chat-input-wrap{padding:16px}
+  .wf-editor-row{grid-template-columns:1fr 1fr}
 }
 @media (min-width:900px){
   .nav-desktop{display:flex}
@@ -369,7 +564,7 @@ html[data-theme="light"] .chat-input-wrap{background:rgba(16,20,48,.02)}
   .tool-layout{grid-template-columns:1fr 1fr;gap:20px;align-items:start}
   .panel{padding:22px}
   .output-panel{position:sticky;top:88px;min-height:420px}
-  .cat-grid{grid-template-columns:repeat(4,1fr)}
+  .cat-grid{grid-template-columns:repeat(5,1fr)}
 }
 @media (min-width:1200px){
   .tool-grid{grid-template-columns:repeat(4,1fr)}
@@ -390,6 +585,7 @@ html[data-theme="light"] .chat-input-wrap{background:rgba(16,20,48,.02)}
     <nav class="nav-desktop" id="navDesktop">
       <a href="#/home" data-nav="home">Home</a>
       <a href="#/tools" data-nav="tools">AI Tools</a>
+      <a href="#/workflow" data-nav="workflow">Workflow</a>
       <a href="#/favorites" data-nav="favorites">Favorites</a>
       <a href="#/history" data-nav="history">History</a>
       <button id="settingsBtnNav">Settings</button>
@@ -423,6 +619,7 @@ html[data-theme="light"] .chat-input-wrap{background:rgba(16,20,48,.02)}
 
 <div class="toast-wrap" id="toasts" aria-live="polite"></div>
 
+<!-- Settings Modal -->
 <div class="modal-backdrop" id="settingsModal" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
     <div class="modal-head">
@@ -435,7 +632,7 @@ html[data-theme="light"] .chat-input-wrap{background:rgba(16,20,48,.02)}
     </div>
     <div class="modal-body">
       <div class="field">
-        <label for="setModel">Model</label>
+        <label for="setModel">Text Model (default)</label>
         <select class="input" id="setModel">
           <option value="openai/gpt-oss-120b">openai/gpt-oss-120b (default)</option>
           <option value="openai/gpt-oss-20b">openai/gpt-oss-20b</option>
@@ -445,22 +642,26 @@ html[data-theme="light"] .chat-input-wrap{background:rgba(16,20,48,.02)}
           <option value="meta-llama/llama-4-maverick-17b-128e-instruct">meta-llama/llama-4-maverick-17b-128e-instruct</option>
           <option value="qwen/qwen3-32b">qwen/qwen3-32b</option>
           <option value="moonshotai/kimi-k2-instruct">moonshotai/kimi-k2-instruct</option>
-          <option value="deepseek-r1-distill-llama-70b">deepseek-r1-distill-llama-70b</option>
         </select>
       </div>
-
+      <div class="field">
+        <label for="setVisionModel">Vision Model (untuk gambar)</label>
+        <select class="input" id="setVisionModel">
+          <option value="qwen/qwen3.8-27b">qwen/qwen3.8-27b (default)</option>
+          <option value="meta-llama/llama-4-scout-17b-16e-instruct">meta-llama/llama-4-scout-17b-16e-instruct</option>
+          <option value="meta-llama/llama-4-maverick-17b-128e-instruct">meta-llama/llama-4-maverick-17b-128e-instruct</option>
+        </select>
+      </div>
       <div class="field">
         <label>Temperature <span id="tempLabel" class="range-val"></span></label>
         <div class="range-row">
           <input type="range" id="setTemp" min="0" max="1.5" step="0.05" value="0.7">
         </div>
       </div>
-
       <div class="field">
         <label for="setMaxTokens">Max Tokens</label>
         <input class="input" type="number" id="setMaxTokens" min="128" max="8192" step="64" value="2048">
       </div>
-
       <div class="field">
         <label for="setSysPrompt">System Prompt (opsional)</label>
         <textarea class="input" id="setSysPrompt" rows="4" placeholder="Contoh: You are a helpful assistant that always answers in Indonesian."></textarea>
@@ -473,29 +674,101 @@ html[data-theme="light"] .chat-input-wrap{background:rgba(16,20,48,.02)}
   </div>
 </div>
 
+<!-- Workflow Node Editor Modal -->
+<div class="modal-backdrop" id="wfEditorModal" aria-hidden="true">
+  <div class="modal modal-lg" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <h2 id="wfEditorTitle">Edit Node</h2>
+      <button class="icon-btn" id="closeWfEditor" aria-label="Tutup">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label for="wfNodeName">Nama Step</label>
+        <input class="input" type="text" id="wfNodeName" />
+      </div>
+      <div class="field">
+        <label for="wfNodeModel">Model</label>
+        <select class="input" id="wfNodeModel">
+          <option value="">(pakai model default)</option>
+          <option value="openai/gpt-oss-120b">openai/gpt-oss-120b</option>
+          <option value="openai/gpt-oss-20b">openai/gpt-oss-20b</option>
+          <option value="llama-3.3-70b-versatile">llama-3.3-70b-versatile</option>
+          <option value="llama-3.1-8b-instant">llama-3.1-8b-instant</option>
+          <option value="meta-llama/llama-4-scout-17b-16e-instruct">meta-llama/llama-4-scout-17b-16e-instruct</option>
+          <option value="qwen/qwen3-32b">qwen/qwen3-32b</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="wfNodePrompt">Prompt</label>
+        <textarea class="input" id="wfNodePrompt" rows="6" placeholder="Gunakan {{input}} untuk menyisipkan hasil step sebelumnya."></textarea>
+        <div style="margin-top:6px;font-size:11.5px;color:var(--text-mute);line-height:1.5">
+          💡 Gunakan <code style="background:rgba(99,102,241,.15);padding:1px 5px;border-radius:4px;font-family:'JetBrains Mono',monospace">&#123;&#123;input&#125;&#125;</code> untuk menyisipkan output step sebelumnya. Jika tidak ada placeholder, output sebelumnya otomatis ditambahkan sebagai konteks.
+        </div>
+      </div>
+      <div class="field">
+        <label for="wfNodeTemp">Temperature: <span id="wfNodeTempLabel" class="range-val">0.70</span></label>
+        <div class="range-row">
+          <input type="range" id="wfNodeTemp" min="0" max="1.5" step="0.05" value="0.7">
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" id="cancelWfEditor">Batal</button>
+      <button class="btn btn-primary" id="saveWfEditor">Simpan Node</button>
+    </div>
+  </div>
+</div>
+
+<!-- Import Workflow Modal -->
+<div class="modal-backdrop" id="wfImportModal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <h2>Import Workflow JSON</h2>
+      <button class="icon-btn" id="closeWfImport" aria-label="Tutup">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label for="wfImportText">Paste JSON workflow di sini</label>
+        <textarea class="input" id="wfImportText" rows="10" style="font-family:'JetBrains Mono',monospace;font-size:12px" placeholder='{"name":"My Workflow","nodes":[...]}'></textarea>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" id="cancelWfImport">Batal</button>
+      <button class="btn btn-primary" id="confirmWfImport">Import</button>
+    </div>
+  </div>
+</div>
+
 <script>
 /* =========================================================================
    HAMZ AI HUB — Single File App (Groq API)
    =========================================================================
-
-   ⚠️ PERINGATAN KEAMANAN
-   --------------------------------------------------------------------
-   API key di frontend BISA DILIHAT siapa saja yang membuka DevTools.
-   Hanya cocok untuk eksperimen pribadi. Untuk publik, gunakan backend
-   serverless yang menyimpan key sebagai secret.
+   ⚠️ API key di frontend BISA DILIHAT siapa saja yang membuka DevTools.
+   Hanya cocok untuk eksperimen pribadi.
    ========================================================================= */
 
-/* =========================================================================
-   ⚙️ KONFIGURASI — DIPERTAHANKAN DARI VERSI SEBELUMNYA
-   ========================================================================= */
+/* ===== KONFIGURASI (dipertahankan dari versi sebelumnya) ===== */
 const OPENAI_API_KEY = "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";
 const OPENAI_MODEL   = "openai/gpt-oss-120b";
+const OPENAI_VISION_MODEL_DEFAULT = "qwen/qwen3.8-27b";
 const OPENAI_TIMEOUT_MS = 60000;
 const API_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions";
 
-/* =========================================================================
-   CATEGORIES
-   ========================================================================= */
+/* ===== FILE UPLOAD LIMITS ===== */
+const MAX_TEXT_FILE_SIZE = 2 * 1024 * 1024;   // 2 MB
+const MAX_IMAGE_FILE_SIZE = 5 * 1024 * 1024;  // 5 MB
+const TEXT_EXTENSIONS = ['.txt','.html','.htm','.css','.js','.json','.md','.py','.java','.cpp','.c','.cs','.php','.lua','.kt','.xml','.csv','.ts','.jsx','.tsx','.rb','.go','.rs','.swift','.sh','.yml','.yaml'];
+const IMAGE_EXTENSIONS = ['.png','.jpg','.jpeg','.webp'];
+
+/* ===== CATEGORIES ===== */
 const CATEGORIES = [
   { id:'all',          label:'All',          icon:'✦'  },
   { id:'assistant',    label:'AI Assistant', icon:'🧠' },
@@ -506,19 +779,17 @@ const CATEGORIES = [
   { id:'social',       label:'Social Media', icon:'📱' },
   { id:'productivity', label:'Productivity', icon:'🌐' },
 ];
-
 const catById = (id) => CATEGORIES.find(c => c.id === id) || CATEGORIES[0];
 
-/* =========================================================================
-   TOOL REGISTRY
-   ========================================================================= */
+/* ===== LANGUAGES ===== */
 const LANGUAGES = ['auto-detect','Indonesian','English','Malay','Arabic','Spanish','French','German','Japanese','Korean','Chinese'];
 
+/* ===== TOOL REGISTRY ===== */
 const TOOLS = [
   /* --- AI ASSISTANT --- */
   {
     id:'chat', name:'AI Chat', icon:'💬', cat:'assistant', type:'chat',
-    desc:'Chat dengan AI sungguhan. Simpan riwayat, rename, export, dan lanjutkan kapan saja.',
+    desc:'Chat dengan AI sungguhan. Upload file & gambar langsung di chat.',
   },
 
   /* --- WRITING --- */
@@ -530,8 +801,7 @@ const TOOLS = [
       { key:'tone', label:'Tone', type:'select', options:['Casual','Friendly','Professional','Formal','Creative'], def:'Casual' },
       { key:'length', label:'Panjang', type:'select', options:['Short','Medium','Long'], def:'Medium' },
     ],
-    build(v){
-      const len = { Short:'~80 words', Medium:'~200 words', Long:'~400 words' }[v.length] || '~200 words';
+    build(v){ const len = { Short:'~80 words', Medium:'~200 words', Long:'~400 words' }[v.length] || '~200 words';
       return [
         { role:'system', content:`You are a professional writing assistant. Write in the same language as the user's input. Tone: ${v.tone}. Length: ${len}. Return ONLY the finished piece of writing. No preamble.` },
         { role:'user', content:`Write about: ${v.topic}` }
@@ -546,8 +816,7 @@ const TOOLS = [
       { key:'length', label:'Panjang ringkasan', type:'select', options:['Very Short','Short','Medium','Detailed'], def:'Short' },
       { key:'format', label:'Format', type:'select', options:['Bullet points','Paragraph'], def:'Bullet points' },
     ],
-    build(v){
-      const len = { 'Very Short':'1 sentence max 25 words','Short':'4–6 concise points','Medium':'one tight paragraph max 120 words','Detailed':'2 short paragraphs with 3 most important points' }[v.length] || '4–6 concise points';
+    build(v){ const len = { 'Very Short':'1 sentence max 25 words','Short':'4–6 concise points','Medium':'one tight paragraph max 120 words','Detailed':'2 short paragraphs with 3 most important points' }[v.length] || '4–6 concise points';
       return [
         { role:'system', content:`You are a precise summarizer. Summarize in the same language as input. Length: ${len}. Format: ${v.format}. Return only the summary. No preamble.` },
         { role:'user', content: v.text }
@@ -563,10 +832,10 @@ const TOOLS = [
     ],
     build(v){
       return [
-        { role:'system', content:`You are a grammar and style expert. Fix grammar, spelling, punctuation, and awkward phrasing. Keep the original meaning. Language: ${v.lang}.
+        { role:'system', content:`You are a grammar and style expert. Fix grammar, spelling, punctuation, and awkward phrasing. Keep original meaning. Language: ${v.lang}.
 Output in markdown:
 ## Versi Perbaikan
-(the corrected version)
+(corrected version)
 
 ## Perubahan Utama
 - bullet list of key changes` },
@@ -583,7 +852,7 @@ Output in markdown:
     ],
     build(v){
       return [
-        { role:'system', content:`You are an expert editor. Rewrite the user's text with this goal: "${v.mode}". Keep the core meaning. Return ONLY the rewritten text. Same language as input. No preamble.` },
+        { role:'system', content:`You are an expert editor. Rewrite the user's text with goal: "${v.mode}". Keep core meaning. Return ONLY the rewritten text. Same language as input. No preamble.` },
         { role:'user', content: v.text }
       ];
     }
@@ -621,7 +890,7 @@ Return ONLY the email. No preamble.` },
     ],
     build(v){
       return [
-        { role:'system', content:`You are a professional translator. Translate from ${v.sourceLang} to ${v.targetLang}. Preserve tone, meaning, and nuance. Return ONLY the translation. No explanations, no quotes.` },
+        { role:'system', content:`You are a professional translator. Translate from ${v.sourceLang} to ${v.targetLang}. Preserve tone, meaning, nuance. Return ONLY the translation. No explanations, no quotes.` },
         { role:'user', content: v.text }
       ];
     }
@@ -638,16 +907,15 @@ Return ONLY the email. No preamble.` },
       { key:'mode', label:'Mode', type:'select', options:['Explain Code','Fix Bug','Optimize','Convert','Add Feature'], def:'Explain Code' },
     ],
     build(v){
-      const mode = v.mode;
       const instr = {
         'Explain Code': 'Explain what the code does, step by step, in plain language. Add a short summary at the end.',
         'Fix Bug': 'Identify bugs and issues, explain them briefly, then provide a corrected version inside a fenced code block.',
-        'Optimize': 'Suggest improvements for performance and readability. Provide an optimized version in a code block, and explain what changed.',
+        'Optimize': 'Suggest improvements for performance and readability. Provide optimized version in a code block, and explain what changed.',
         'Convert': 'Convert the code to a cleaner, more idiomatic style. Provide the new version in a code block.',
-        'Add Feature': 'Suggest and implement a useful feature. Provide the updated code in a code block, plus a brief explanation.',
-      }[mode] || 'Help the user with their code.';
+        'Add Feature': 'Suggest and implement a useful feature. Provide the updated code in a code block, plus brief explanation.',
+      }[v.mode] || 'Help the user with their code.';
       return [
-        { role:'system', content:`You are a senior ${v.language} engineer. Task: ${mode}. ${instr}\nUse markdown. Use fenced code blocks with correct language tag (${v.language.toLowerCase()}).` },
+        { role:'system', content:`You are a senior ${v.language} engineer. Task: ${v.mode}. ${instr}\nUse markdown. Use fenced code blocks with correct language tag (${v.language.toLowerCase()}).` },
         { role:'user', content: v.task }
       ];
     }
@@ -663,7 +931,7 @@ Return ONLY the email. No preamble.` },
       return [
         { role:'system', content:`You are a prompt engineering expert. Category: ${v.type}.
 Produce a detailed, well-structured prompt another AI can use directly.
-Include: main prompt, style notes, technical settings, and (for Image/Video) a negative prompt.
+Include: main prompt, style notes, technical settings, and (for Image/Video) negative prompt.
 Return clean markdown. No preamble.` },
         { role:'user', content:`Idea: ${v.idea}` }
       ];
@@ -681,8 +949,8 @@ Return clean markdown. No preamble.` },
     ],
     build(v){
       const instr = {
-        'Explain': 'Explain the material step by step with analogies. End with 3 quick check questions.',
-        'Summarize': 'Summarize the material into clear study notes with key terms highlighted.',
+        'Explain': 'Explain step by step with analogies. End with 3 quick check questions.',
+        'Summarize': 'Summarize into clear study notes with key terms highlighted.',
         'Make Questions': 'Generate 5–8 open-ended study questions with brief model answers.',
         'Make Quiz': 'Generate a multiple-choice quiz (5 questions) with options A–D and answer key at the end.',
       }[v.mode] || 'Help the learner.';
@@ -723,7 +991,7 @@ Return clean markdown. No preamble.` },
 Generate ${v.count} caption variations. Each must include:
 - The caption text
 - 5–8 relevant hashtags
-Format as a numbered list. Return in same language as input. No preamble.` },
+Format as numbered list. Return in same language as input. No preamble.` },
         { role:'user', content: v.topic }
       ];
     }
@@ -751,7 +1019,7 @@ Numbered list only. Same language as input. No preamble.` },
     fields:[
       { key:'topic', label:'Topik video', type:'text', required:true, placeholder:'Contoh: Review iPhone 16 Pro setelah 1 bulan' },
       { key:'chapters', label:'Chapters', type:'select', options:['Yes','No'], def:'Yes' },
-      { key:'links', label:'Link yang mau dimasukkan (opsional)', type:'text', placeholder:'Contoh: Instagram: @user, Website: example.com' },
+      { key:'links', label:'Link (opsional)', type:'text', placeholder:'Contoh: Instagram: @user, Website: example.com' },
     ],
     build(v){
       return [
@@ -798,34 +1066,43 @@ No preamble.` },
       ];
     }
   },
+
+  /* --- NEW TOOLS --- */
+  {
+    id:'workflow', name:'AI Workflow Builder', icon:'🧩', cat:'productivity', type:'workflow',
+    desc:'Buat alur AI visual. Gabungkan beberapa AI step jadi satu pipeline.',
+  },
+  {
+    id:'file-analyzer', name:'AI File Analyzer', icon:'📂', cat:'productivity', type:'file',
+    desc:'Upload file teks/kode untuk dianalisis AI: ringkas, jelaskan, cari bug, review.',
+  },
+  {
+    id:'image-analyzer', name:'AI Image Analyzer', icon:'🖼️', cat:'productivity', type:'image',
+    desc:'Upload gambar dan minta AI mendeskripsikan, membaca teks, atau menganalisis.',
+  },
 ];
 
 const toolById = (id) => TOOLS.find(t => t.id === id);
 
-/* =========================================================================
-   STATE
-   ========================================================================= */
+/* ===== STATE ===== */
 const STORAGE_KEYS = {
-  theme: 'hamz.theme',
-  favorites: 'hamz.favorites',
-  recent: 'hamz.recent',
-  chats: 'hamz.chats',
-  settings: 'hamz.settings',
+  theme:'hamz.theme', favorites:'hamz.favorites', recent:'hamz.recent',
+  chats:'hamz.chats', settings:'hamz.settings', workflows:'hamz.workflows',
 };
 
 const DEFAULT_SETTINGS = {
   model: OPENAI_MODEL,
+  visionModel: OPENAI_VISION_MODEL_DEFAULT,
   temperature: 0.7,
   maxTokens: 2048,
   systemPrompt: '',
 };
 
-function loadSettings() {
+function loadSettings(){
   try {
     const raw = localStorage.getItem(STORAGE_KEYS.settings);
     if (!raw) return { ...DEFAULT_SETTINGS };
-    const parsed = JSON.parse(raw);
-    return { ...DEFAULT_SETTINGS, ...parsed };
+    return { ...DEFAULT_SETTINGS, ...JSON.parse(raw) };
   } catch { return { ...DEFAULT_SETTINGS }; }
 }
 
@@ -834,19 +1111,16 @@ const state = {
   favorites: new Set(JSON.parse(localStorage.getItem(STORAGE_KEYS.favorites) || '[]')),
   recent: JSON.parse(localStorage.getItem(STORAGE_KEYS.recent) || '[]'),
   chats: JSON.parse(localStorage.getItem(STORAGE_KEYS.chats) || '[]'),
+  savedWorkflows: JSON.parse(localStorage.getItem(STORAGE_KEYS.workflows) || '[]'),
   settings: loadSettings(),
-  query: '',
-  category: 'all',
-  homeQuery: '',
+  query: '', category: 'all', homeQuery: '',
   activeChatId: null,
   streaming: false,
   abortController: null,
-  lastRequest: null, // untuk regenerate
+  lastRequest: null,
 };
 
-/* =========================================================================
-   UTILS
-   ========================================================================= */
+/* ===== UTILS ===== */
 const $  = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 const escapeHtml = (s) => String(s)
@@ -857,11 +1131,11 @@ const saveFav = () => localStorage.setItem(STORAGE_KEYS.favorites, JSON.stringif
 const saveRecent = () => localStorage.setItem(STORAGE_KEYS.recent, JSON.stringify(state.recent.slice(0, 8)));
 const saveTheme = () => localStorage.setItem(STORAGE_KEYS.theme, state.theme);
 const saveChats = () => localStorage.setItem(STORAGE_KEYS.chats, JSON.stringify(state.chats));
-const saveSettings = () => localStorage.setItem(STORAGE_KEYS.settings, JSON.stringify(state.settings));
+const saveSettingsLS = () => localStorage.setItem(STORAGE_KEYS.settings, JSON.stringify(state.settings));
+const saveWorkflowsLS = () => localStorage.setItem(STORAGE_KEYS.workflows, JSON.stringify(state.savedWorkflows));
 
-/* --- Toast --- */
 const TOAST_ICONS = { success:'✓', error:'!', info:'i' };
-function toast(msg, type = 'info', ms = 2600) {
+function toast(msg, type = 'info', ms = 2600){
   const wrap = $('#toasts');
   const el = document.createElement('div');
   el.className = `toast ${type}`;
@@ -870,16 +1144,13 @@ function toast(msg, type = 'info', ms = 2600) {
   setTimeout(() => { el.classList.add('out'); setTimeout(() => el.remove(), 300); }, ms);
 }
 
-/* --- Copy --- */
-async function copyText(text, okMsg = 'Disalin ke clipboard') {
+async function copyText(text, okMsg = 'Disalin ke clipboard'){
   if (!text || !text.trim()) { toast('Tidak ada yang bisa disalin', 'error'); return false; }
   try {
-    if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(text);
-    } else {
+    if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(text);
+    else {
       const ta = document.createElement('textarea');
-      ta.value = text;
-      ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+      ta.value = text; ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
       document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
     }
     toast(okMsg, 'success', 1400);
@@ -887,11 +1158,8 @@ async function copyText(text, okMsg = 'Disalin ke clipboard') {
   } catch { toast('Gagal menyalin', 'error'); return false; }
 }
 
-/* --- Date format --- */
-function fmtDate(ts) {
-  const d = new Date(ts);
-  const now = Date.now();
-  const diff = now - ts;
+function fmtDate(ts){
+  const d = new Date(ts); const diff = Date.now() - ts;
   if (diff < 60000) return 'baru saja';
   if (diff < 3600000) return Math.floor(diff/60000) + ' menit lalu';
   if (diff < 86400000) return Math.floor(diff/3600000) + ' jam lalu';
@@ -899,10 +1167,14 @@ function fmtDate(ts) {
   return d.toLocaleDateString('id-ID', { day:'numeric', month:'short', year:'numeric' });
 }
 
-/* =========================================================================
-   MARKDOWN RENDERER (simple, safe)
-   ========================================================================= */
-function renderMarkdown(text) {
+function fmtBytes(bytes){
+  if (bytes < 1024) return bytes + ' B';
+  if (bytes < 1024*1024) return (bytes/1024).toFixed(1) + ' KB';
+  return (bytes/(1024*1024)).toFixed(2) + ' MB';
+}
+
+/* ===== MARKDOWN ===== */
+function renderMarkdown(text){
   if (!text) return '';
   const codeBlocks = [];
   let s = String(text).replace(/```([\w+-]*)\n?([\s\S]*?)```/g, (m, lang, code) => {
@@ -910,23 +1182,18 @@ function renderMarkdown(text) {
     codeBlocks.push({ lang: (lang || 'code').trim().toLowerCase(), code: code.replace(/\n$/, '') });
     return `\x00CB${idx}\x00`;
   });
-
   s = escapeHtml(s);
   s = s.replace(/`([^`\n]+)`/g, '<code class="inline-code">$1</code>');
   s = s.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>');
   s = s.replace(/(^|[^*])\*([^*\n]+)\*(?!\*)/g, '$1<em>$2</em>');
   s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
-
   const lines = s.split('\n');
-  const out = [];
-  let listType = null;
+  const out = []; let listType = null;
   const closeList = () => { if (listType) { out.push(`</${listType}>`); listType = null; } };
-
   for (const line of lines) {
     const t = line.trim();
     if (!t) { closeList(); continue; }
     if (/^\x00CB\d+\x00$/.test(t)) { closeList(); out.push(t); continue; }
-
     let m;
     if ((m = t.match(/^### (.+)$/))) { closeList(); out.push(`<h3>${m[1]}</h3>`); continue; }
     if ((m = t.match(/^## (.+)$/)))  { closeList(); out.push(`<h2>${m[1]}</h2>`); continue; }
@@ -944,48 +1211,64 @@ function renderMarkdown(text) {
   }
   closeList();
   s = out.join('\n');
-
   s = s.replace(/\x00CB(\d+)\x00/g, (m, i) => {
     const cb = codeBlocks[+i];
     if (!cb) return '';
     const id = 'cb-' + i + '-' + Math.random().toString(36).slice(2, 8);
     return `<div class="code-block"><div class="code-head"><span>${escapeHtml(cb.lang)}</span><button class="mini-btn" data-copy-code="${id}" type="button">Copy</button></div><pre><code id="${id}">${escapeHtml(cb.code)}</code></pre></div>`;
   });
-
   return s;
 }
 
-/* =========================================================================
-   AI REQUEST — satu fungsi utama untuk semua tool
-   ========================================================================= */
-function isKeyConfigured() {
-  return typeof OPENAI_API_KEY === 'string' && OPENAI_API_KEY.trim().length > 0
-    && OPENAI_API_KEY.startsWith('gsk_');
+/* =========================================================
+   AUTO MODEL SELECTION
+   ========================================================= */
+function selectModelForInput(input){
+  if (!input) return state.settings.model || OPENAI_MODEL;
+  if (typeof input === 'object' && input.hasImage) return state.settings.visionModel || OPENAI_VISION_MODEL_DEFAULT;
+  if (Array.isArray(input)) {
+    for (const m of input) {
+      if (Array.isArray(m.content)) {
+        for (const part of m.content) {
+          if (part.type === 'image_url') return state.settings.visionModel || OPENAI_VISION_MODEL_DEFAULT;
+        }
+      }
+    }
+  }
+  return state.settings.model || OPENAI_MODEL;
 }
 
-/**
- * Fungsi utama untuk semua AI request.
- * @param {Array} messages - [{ role, content }]
- * @param {Object} opts - { temperature, maxTokens, stream, signal, onChunk, systemPrompt }
- * @returns {Promise<string>}
- */
-async function callAI(messages, opts = {}) {
-  if (!isKeyConfigured()) {
-    throw new Error('API key Groq belum diisi. Buka index.html dan isi OPENAI_API_KEY.');
-  }
-  if (!Array.isArray(messages) || messages.length === 0) {
-    throw new Error('Pesan tidak boleh kosong.');
-  }
+function modelLabel(model){
+  if (!model) return 'Unknown';
+  if (model.includes('gpt-oss-120b')) return 'GPT-OSS 120B';
+  if (model.includes('gpt-oss-20b')) return 'GPT-OSS 20B';
+  if (model.includes('qwen3.8') || model.includes('qwen3-32b')) return 'Qwen 3.8 27B Vision';
+  if (model.includes('llama-4-scout')) return 'Llama 4 Scout';
+  if (model.includes('llama-4-maverick')) return 'Llama 4 Maverick';
+  if (model.includes('llama-3.3')) return 'Llama 3.3 70B';
+  if (model.includes('llama-3.1')) return 'Llama 3.1 8B';
+  return model;
+}
+
+/* =========================================================
+   AI REQUEST (text) — reusable
+   ========================================================= */
+function isKeyConfigured(){
+  return typeof OPENAI_API_KEY === 'string' && OPENAI_API_KEY.trim().length > 0 && OPENAI_API_KEY.startsWith('gsk_');
+}
+
+async function callAI(messages, opts = {}){
+  if (!isKeyConfigured()) throw new Error('API key Groq belum diisi. Buka index.html dan isi OPENAI_API_KEY.');
+  if (!Array.isArray(messages) || messages.length === 0) throw new Error('Pesan tidak boleh kosong.');
 
   const controller = new AbortController();
   const externalSignal = opts.signal;
-  if (externalSignal) {
-    externalSignal.addEventListener('abort', () => controller.abort(), { once: true });
-  }
+  if (externalSignal) externalSignal.addEventListener('abort', () => controller.abort(), { once: true });
   const timer = setTimeout(() => controller.abort(), OPENAI_TIMEOUT_MS);
 
+  const model = opts.model || state.settings.model || OPENAI_MODEL;
   const body = {
-    model: opts.model || state.settings.model || OPENAI_MODEL,
+    model,
     messages,
     temperature: opts.temperature ?? state.settings.temperature ?? 0.7,
     max_tokens: opts.maxTokens ?? state.settings.maxTokens ?? 2048,
@@ -995,11 +1278,8 @@ async function callAI(messages, opts = {}) {
   let res;
   try {
     res = await fetch(API_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + OPENAI_API_KEY,
-      },
+      method:'POST',
+      headers:{ 'Content-Type':'application/json', 'Authorization':'Bearer ' + OPENAI_API_KEY },
       body: JSON.stringify(body),
       signal: controller.signal,
     });
@@ -1016,7 +1296,7 @@ async function callAI(messages, opts = {}) {
     if (res.status === 401) throw new Error('API key tidak valid (401). Periksa konfigurasi API kamu.');
     if (res.status === 400) throw new Error(apiMsg || 'Request tidak valid (400). Cek model atau input.');
     if (res.status === 403) throw new Error('Akses ditolak (403). Model mungkin tidak tersedia untuk key ini.');
-    if (res.status === 404) throw new Error(`Model "${body.model}" tidak ditemukan (404).`);
+    if (res.status === 404) throw new Error(`Model "${model}" tidak ditemukan (404).`);
     if (res.status === 429) throw new Error('Rate limit / kuota habis (429). Tunggu sebentar lalu coba lagi.');
     if (res.status >= 500) throw new Error(`Server AI sedang error (${res.status}). Coba lagi nanti.`);
     throw new Error(apiMsg || `Request gagal (${res.status}).`);
@@ -1025,8 +1305,7 @@ async function callAI(messages, opts = {}) {
   if (opts.stream && res.body) {
     const reader = res.body.getReader();
     const decoder = new TextDecoder();
-    let buffer = '';
-    let full = '';
+    let buffer = ''; let full = '';
     try {
       while (true) {
         const { done, value } = await reader.read();
@@ -1064,13 +1343,93 @@ async function callAI(messages, opts = {}) {
   return content.trim();
 }
 
-/* =========================================================================
+/* =========================================================
+   AI REQUEST (vision) — untuk gambar
+   ========================================================= */
+async function callVisionAI(userPrompt, imageDataUrl, opts = {}){
+  if (!imageDataUrl || typeof imageDataUrl !== 'string' || !imageDataUrl.startsWith('data:image/')) {
+    throw new Error('Format gambar tidak valid.');
+  }
+  const messages = [
+    { role:'system', content: opts.systemPrompt || 'You are a helpful vision assistant. Analyze the image and answer in the same language as the user.' },
+    {
+      role:'user',
+      content: [
+        { type:'text', text: userPrompt || 'Describe this image.' },
+        { type:'image_url', image_url: { url: imageDataUrl } },
+      ],
+    },
+  ];
+  const model = opts.model || state.settings.visionModel || OPENAI_VISION_MODEL_DEFAULT;
+  return callAI(messages, { ...opts, model, stream: false });
+}
+
+/* =========================================================
+   FILE HANDLING
+   ========================================================= */
+function getExt(name){
+  const m = String(name || '').toLowerCase().match(/(\.[a-z0-9]+)$/);
+  return m ? m[1] : '';
+}
+
+function isTextFile(file){
+  const ext = getExt(file.name);
+  if (TEXT_EXTENSIONS.includes(ext)) return true;
+  if (file.type && (file.type.startsWith('text/') || file.type.includes('json') || file.type.includes('xml'))) return true;
+  return false;
+}
+
+function isImageFile(file){
+  const ext = getExt(file.name);
+  if (IMAGE_EXTENSIONS.includes(ext)) return true;
+  if (file.type && file.type.startsWith('image/')) return true;
+  return false;
+}
+
+function validateFile(file){
+  if (!file) return { ok:false, msg:'File tidak valid.' };
+  const isText = isTextFile(file);
+  const isImg = isImageFile(file);
+  if (!isText && !isImg) return { ok:false, msg:'Tipe file tidak didukung. Hanya teks/kode atau gambar (png, jpg, jpeg, webp).' };
+  if (isText && file.size > MAX_TEXT_FILE_SIZE) return { ok:false, msg:`File teks terlalu besar (maks ${fmtBytes(MAX_TEXT_FILE_SIZE)}).` };
+  if (isImg && file.size > MAX_IMAGE_FILE_SIZE) return { ok:false, msg:`Gambar terlalu besar (maks ${fmtBytes(MAX_IMAGE_FILE_SIZE)}).` };
+  return { ok:true, isText, isImg };
+}
+
+function readTextFile(file){
+  return new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(String(r.result || ''));
+    r.onerror = () => reject(new Error('Gagal membaca file.'));
+    r.readAsText(file);
+  });
+}
+
+function readImageFile(file){
+  return new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(String(r.result || ''));
+    r.onerror = () => reject(new Error('Gagal membaca gambar.'));
+    r.readAsDataURL(file);
+  });
+}
+
+function getImageDimensions(dataUrl){
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve({ w: img.naturalWidth, h: img.naturalHeight });
+    img.onerror = () => resolve({ w:0, h:0 });
+    img.src = dataUrl;
+  });
+}
+
+/* =========================================================
    THEME
-   ========================================================================= */
+   ========================================================= */
 const SUN_SVG = '<circle cx="12" cy="12" r="4.2"/><line x1="12" y1="1.6" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22.4"/><line x1="4.2" y1="4.2" x2="5.9" y2="5.9"/><line x1="18.1" y1="18.1" x2="19.8" y2="19.8"/><line x1="1.6" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22.4" y2="12"/><line x1="4.2" y1="19.8" x2="5.9" y2="18.1"/><line x1="18.1" y1="5.9" x2="19.8" y2="4.2"/>';
 const MOON_SVG = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
 
-function applyTheme() {
+function applyTheme(){
   document.documentElement.setAttribute('data-theme', state.theme);
   const icon = $('#themeIcon');
   if (icon) icon.innerHTML = state.theme === 'dark' ? MOON_SVG : SUN_SVG;
@@ -1078,13 +1437,14 @@ function applyTheme() {
   if (meta) meta.setAttribute('content', state.theme === 'dark' ? '#07080b' : '#f6f7fb');
 }
 
-/* =========================================================================
+/* =========================================================
    DRAWER
-   ========================================================================= */
-function renderDrawer() {
+   ========================================================= */
+function renderDrawer(){
   const nav = [
     ['home','Home','🏠','#/home'],
     ['tools','AI Tools','🧰','#/tools'],
+    ['workflow','Workflow','🧩','#/workflow'],
     ['favorites','Favorites','⭐','#/favorites'],
     ['history','History','🕘','#/history'],
   ];
@@ -1092,9 +1452,7 @@ function renderDrawer() {
     <div class="drawer-head">
       <span style="font-weight:700;font-size:14px">MENU</span>
       <button class="icon-btn" id="closeDrawer" aria-label="Tutup menu">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round">
-          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-        </svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
     <nav>
@@ -1105,41 +1463,24 @@ function renderDrawer() {
   $('#closeDrawer').addEventListener('click', closeDrawer);
   $('#settingsBtnDrawer').addEventListener('click', () => { closeDrawer(); openSettings(); });
 }
+function openDrawer(){ $('#drawer').classList.add('open'); $('#overlay').classList.add('show'); document.body.style.overflow = 'hidden'; }
+function closeDrawer(){ $('#drawer').classList.remove('open'); $('#overlay').classList.remove('show'); document.body.style.overflow = ''; }
 
-function openDrawer() { $('#drawer').classList.add('open'); $('#overlay').classList.add('show'); document.body.style.overflow = 'hidden'; }
-function closeDrawer() { $('#drawer').classList.remove('open'); $('#overlay').classList.remove('show'); document.body.style.overflow = ''; }
-
-/* =========================================================================
+/* =========================================================
    FOOTER
-   ========================================================================= */
-function renderFooter() {
+   ========================================================= */
+function renderFooter(){
   $('#footer').innerHTML = `
     <div class="container">
       <div class="footer-top">
         <div>
-          <div class="footer-brand">
-            <span class="brand-mark">H</span>
-            <span class="brand-text">HAMZ <span>AI HUB</span></span>
-          </div>
+          <div class="footer-brand"><span class="brand-mark">H</span><span class="brand-text">HAMZ <span>AI HUB</span></span></div>
           <p class="footer-tagline">“Smart tools. One place.”</p>
         </div>
         <div class="footer-cols">
-          <div class="footer-col">
-            <h4>Tools</h4>
-            <a href="#/tools">All Tools</a>
-            <a href="#/favorites">Favorites</a>
-            <a href="#/history">History</a>
-          </div>
-          <div class="footer-col">
-            <h4>Company</h4>
-            <a href="#/about">About</a>
-            <a href="#/about">Contact</a>
-          </div>
-          <div class="footer-col">
-            <h4>Legal</h4>
-            <a href="#/about">Privacy</a>
-            <a href="#/about">Terms</a>
-          </div>
+          <div class="footer-col"><h4>Tools</h4><a href="#/tools">All Tools</a><a href="#/workflow">Workflow</a><a href="#/favorites">Favorites</a></div>
+          <div class="footer-col"><h4>Company</h4><a href="#/about">About</a><a href="#/about">Contact</a></div>
+          <div class="footer-col"><h4>Legal</h4><a href="#/about">Privacy</a><a href="#/about">Terms</a></div>
         </div>
       </div>
       <div class="footer-bottom">
@@ -1149,10 +1490,10 @@ function renderFooter() {
     </div>`;
 }
 
-/* =========================================================================
+/* =========================================================
    TOOL CARDS + GRID
-   ========================================================================= */
-function toolCardHtml(tool) {
+   ========================================================= */
+function toolCardHtml(tool){
   const isFav = state.favorites.has(tool.id);
   const cat = catById(tool.cat);
   return `
@@ -1160,64 +1501,43 @@ function toolCardHtml(tool) {
       <div class="tool-card-top">
         <div class="tool-icon">${tool.icon}</div>
         <button class="fav-btn ${isFav ? 'active' : ''}" data-fav="${tool.id}" aria-label="Favorite" title="Favorite">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="${isFav ? 'currentColor' : 'none'}"
-               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-          </svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="${isFav ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </button>
       </div>
       <h3>${escapeHtml(tool.name)}</h3>
       <p>${escapeHtml(tool.desc)}</p>
       <div class="tool-card-foot">
         <span class="chip">${cat.icon} ${cat.label}</span>
-        <span class="open-link">Open Tool
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-          </svg>
-        </span>
+        <span class="open-link">Open Tool →</span>
       </div>
     </article>`;
 }
 
-function renderGrid(el, list, empty = { title:'Tidak ada tools', text:'Coba kata kunci lain.' }) {
+function renderGrid(el, list, empty = { title:'Tidak ada tools', text:'Coba kata kunci lain.' }){
   if (!el) return;
-  if (!list.length) {
-    el.innerHTML = `
-      <div class="empty-state">
-        <div class="empty-icon">🔍</div>
-        <h3>${escapeHtml(empty.title)}</h3>
-        <p>${escapeHtml(empty.text)}</p>
-      </div>`;
-    return;
-  }
+  if (!list.length) { el.innerHTML = `<div class="empty-state"><div class="empty-icon">🔍</div><h3>${escapeHtml(empty.title)}</h3><p>${escapeHtml(empty.text)}</p></div>`; return; }
   el.innerHTML = list.map(toolCardHtml).join('');
 }
 
-function filterTools(q, cat = 'all') {
+function filterTools(q, cat = 'all'){
   const query = (q || '').trim().toLowerCase();
   return TOOLS.filter(t => {
     if (cat !== 'all' && t.cat !== cat) return false;
     if (!query) return true;
-    const hay = [t.name, t.desc, catById(t.cat).label].join(' ').toLowerCase();
-    return hay.includes(query);
+    return [t.name, t.desc, catById(t.cat).label].join(' ').toLowerCase().includes(query);
   });
 }
 
-function markRecent(id) {
+function markRecent(id){
   state.recent = [id, ...state.recent.filter(x => x !== id)].slice(0, 8);
   saveRecent();
 }
 
-function toggleFavorite(id) {
+function toggleFavorite(id){
   const tool = toolById(id);
   if (!tool) return;
-  if (state.favorites.has(id)) {
-    state.favorites.delete(id);
-    toast('Dihapus dari favorit', 'info', 1300);
-  } else {
-    state.favorites.add(id);
-    toast('Ditambahkan ke favorit ⭐', 'success', 1300);
-  }
+  if (state.favorites.has(id)) { state.favorites.delete(id); toast('Dihapus dari favorit', 'info', 1300); }
+  else { state.favorites.add(id); toast('Ditambahkan ke favorit ⭐', 'success', 1300); }
   saveFav();
   $$(`[data-fav="${id}"]`).forEach(btn => {
     const active = state.favorites.has(id);
@@ -1227,15 +1547,13 @@ function toggleFavorite(id) {
   });
 }
 
-/* =========================================================================
+/* =========================================================
    VIEWS — HOME
-   ========================================================================= */
-function renderHome() {
+   ========================================================= */
+function renderHome(){
   const list = filterTools(state.homeQuery);
   const recentTools = state.recent.slice(0, 5).map(toolById).filter(Boolean);
-  const app = $('#app');
-
-  app.innerHTML = `
+  $('#app').innerHTML = `
     <section class="view active">
       <div class="container">
         <div class="hero">
@@ -1255,20 +1573,13 @@ function renderHome() {
           <div class="cat-grid">
             ${CATEGORIES.filter(c => c.id !== 'all').map(c => {
               const count = TOOLS.filter(t => t.cat === c.id).length;
-              return `<a class="cat-card" href="#/tools?cat=${c.id}">
-                <span class="cat-icon">${c.icon}</span>
-                <span class="cat-label">${c.label}</span>
-                <span class="cat-count">${count} tool${count === 1 ? '' : 's'}</span>
-              </a>`;
+              return `<a class="cat-card" href="#/tools?cat=${c.id}"><span class="cat-icon">${c.icon}</span><span class="cat-label">${c.label}</span><span class="cat-count">${count} tool${count === 1 ? '' : 's'}</span></a>`;
             }).join('')}
           </div>
         </section>
 
         <section class="section">
-          <div class="section-head">
-            <h2>${state.homeQuery ? 'Hasil pencarian' : 'Featured tools'}</h2>
-            <a class="link" href="#/tools">View all →</a>
-          </div>
+          <div class="section-head"><h2>${state.homeQuery ? 'Hasil pencarian' : 'Featured tools'}</h2><a class="link" href="#/tools">View all →</a></div>
           <div class="tool-grid" id="homeTools"></div>
         </section>
 
@@ -1280,8 +1591,7 @@ function renderHome() {
       </div>
     </section>`;
 
-  renderGrid($('#homeTools'), list,
-    { title:'Tidak ada tools', text:'Coba kata kunci lain seperti "writer", "code", atau "study".' });
+  renderGrid($('#homeTools'), list, { title:'Tidak ada tools', text:'Coba kata kunci lain seperti "writer", "code", atau "study".' });
   if (recentTools.length) renderGrid($('#recentTools'), recentTools);
 
   const input = $('#homeSearch');
@@ -1289,32 +1599,23 @@ function renderHome() {
     state.homeQuery = e.target.value;
     const val = e.target.value;
     renderHome();
-    const ni = $('#homeSearch');
-    ni.focus();
-    ni.setSelectionRange(val.length, val.length);
+    const ni = $('#homeSearch'); ni.focus(); ni.setSelectionRange(val.length, val.length);
   });
   input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      const q = e.target.value.trim();
-      location.hash = q ? `#/tools?q=${encodeURIComponent(q)}` : '#/tools';
-    }
+    if (e.key === 'Enter') { e.preventDefault(); const q = e.target.value.trim(); location.hash = q ? `#/tools?q=${encodeURIComponent(q)}` : '#/tools'; }
   });
   $('#exploreBtn').addEventListener('click', () => {
     const q = $('#homeSearch').value.trim();
     location.hash = q ? `#/tools?q=${encodeURIComponent(q)}` : '#/tools';
   });
   const cr = $('#clearRecent');
-  if (cr) cr.addEventListener('click', () => {
-    state.recent = []; saveRecent(); renderHome();
-    toast('Recently used dibersihkan', 'info', 1300);
-  });
+  if (cr) cr.addEventListener('click', () => { state.recent = []; saveRecent(); renderHome(); toast('Recently used dibersihkan', 'info', 1300); });
 }
 
-/* =========================================================================
+/* =========================================================
    VIEWS — TOOLS LIST
-   ========================================================================= */
-function renderToolsView(params = {}) {
+   ========================================================= */
+function renderToolsView(params = {}){
   if (params.cat !== undefined) state.category = CATEGORIES.some(c => c.id === params.cat) ? params.cat : 'all';
   if (params.q !== undefined) state.query = params.q;
 
@@ -1348,9 +1649,7 @@ function renderToolsView(params = {}) {
   update();
 
   $('#toolsSearch').addEventListener('input', (e) => { state.query = e.target.value; update(); });
-  $('#clearToolsSearch').addEventListener('click', () => {
-    state.query = ''; $('#toolsSearch').value = ''; update(); $('#toolsSearch').focus();
-  });
+  $('#clearToolsSearch').addEventListener('click', () => { state.query = ''; $('#toolsSearch').value = ''; update(); $('#toolsSearch').focus(); });
   $$('.chip-filter').forEach(btn => btn.addEventListener('click', () => {
     state.category = btn.dataset.cat;
     $$('.chip-filter').forEach(b => b.classList.toggle('active', b === btn));
@@ -1358,31 +1657,25 @@ function renderToolsView(params = {}) {
   }));
 }
 
-/* =========================================================================
+/* =========================================================
    VIEWS — FAVORITES
-   ========================================================================= */
-function renderFavoritesView() {
+   ========================================================= */
+function renderFavoritesView(){
   const list = TOOLS.filter(t => state.favorites.has(t.id));
   $('#app').innerHTML = `
     <section class="view active">
       <div class="container">
-        <div class="page-head">
-          <h1>⭐ Favorites</h1>
-          <p>${list.length ? `${list.length} tool tersimpan.` : 'Belum ada tool favorit.'}</p>
-        </div>
+        <div class="page-head"><h1>⭐ Favorites</h1><p>${list.length ? `${list.length} tool tersimpan.` : 'Belum ada tool favorit.'}</p></div>
         <div class="tool-grid" id="favGrid" style="margin-top:22px"></div>
       </div>
     </section>`;
-  renderGrid($('#favGrid'), list, {
-    title:'Belum ada favorit',
-    text:'Tap ikon bintang ⭐ di tool manapun untuk menyimpannya di sini.',
-  });
+  renderGrid($('#favGrid'), list, { title:'Belum ada favorit', text:'Tap ikon bintang ⭐ di tool manapun untuk menyimpannya di sini.' });
 }
 
-/* =========================================================================
-   VIEWS — HISTORY (chat list)
-   ========================================================================= */
-function renderHistoryView() {
+/* =========================================================
+   VIEWS — HISTORY
+   ========================================================= */
+function renderHistoryView(){
   const chats = [...state.chats].sort((a, b) => b.updatedAt - a.updatedAt);
   $('#app').innerHTML = `
     <section class="view active">
@@ -1397,121 +1690,77 @@ function renderHistoryView() {
     </section>`;
 
   const listEl = $('#chatList');
-  if (!chats.length) {
-    listEl.innerHTML = `<div class="empty-state"><div class="empty-icon">💬</div><h3>Belum ada chat</h3><p>Mulai percakapan pertama kamu dengan AI.</p></div>`;
-  } else {
-    listEl.innerHTML = chats.map(c => `
-      <div class="chat-item" data-chat-open="${c.id}">
-        <div class="tool-icon" style="width:38px;height:38px;font-size:17px">💬</div>
-        <div class="chat-item-info">
-          <div class="chat-item-title">${escapeHtml(c.title || 'Untitled chat')}</div>
-          <div class="chat-item-meta">${c.messages.length} pesan · ${fmtDate(c.updatedAt)}</div>
-        </div>
-        <div class="chat-item-actions">
-          <button class="icon-btn" data-chat-rename="${c.id}" title="Rename" aria-label="Rename">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
-            </svg>
-          </button>
-          <button class="icon-btn" data-chat-delete="${c.id}" title="Hapus" aria-label="Hapus">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/>
-            </svg>
-          </button>
-        </div>
-      </div>`).join('');
-  }
+  if (!chats.length) listEl.innerHTML = `<div class="empty-state"><div class="empty-icon">💬</div><h3>Belum ada chat</h3><p>Mulai percakapan pertama kamu dengan AI.</p></div>`;
+  else listEl.innerHTML = chats.map(c => `
+    <div class="chat-item" data-chat-open="${c.id}">
+      <div class="tool-icon" style="width:38px;height:38px;font-size:17px">💬</div>
+      <div class="chat-item-info">
+        <div class="chat-item-title">${escapeHtml(c.title || 'Untitled chat')}</div>
+        <div class="chat-item-meta">${c.messages.length} pesan · ${fmtDate(c.updatedAt)}</div>
+      </div>
+      <div class="chat-item-actions">
+        <button class="icon-btn" data-chat-rename="${c.id}" title="Rename"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></button>
+        <button class="icon-btn" data-chat-delete="${c.id}" title="Hapus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button>
+      </div>
+    </div>`).join('');
 
-  $('#newChatBtn').addEventListener('click', () => {
-    const id = createNewChat();
-    location.hash = `#/chat/${id}`;
-  });
+  $('#newChatBtn').addEventListener('click', () => { const id = createNewChat(); location.hash = `#/chat/${id}`; });
 }
 
-/* =========================================================================
+/* =========================================================
    CHAT MANAGEMENT
-   ========================================================================= */
-function genId() { return 'c' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
-
-function createNewChat() {
+   ========================================================= */
+function genId(){ return 'c' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+function createNewChat(){
   const id = genId();
-  state.chats.unshift({
-    id,
-    title: 'New Chat',
-    messages: [],
-    createdAt: Date.now(),
-    updatedAt: Date.now(),
-  });
+  state.chats.unshift({ id, title:'New Chat', messages:[], createdAt: Date.now(), updatedAt: Date.now() });
   saveChats();
   return id;
 }
-
-function getChat(id) { return state.chats.find(c => c.id === id); }
-
-function updateChatTitle(id, firstMessage) {
-  const c = getChat(id);
-  if (!c) return;
+function getChat(id){ return state.chats.find(c => c.id === id); }
+function updateChatTitle(id, firstMessage){
+  const c = getChat(id); if (!c) return;
   if (c.title === 'New Chat' || !c.title) {
     const t = String(firstMessage || '').trim().slice(0, 50);
-    c.title = t || 'New Chat';
-    saveChats();
+    c.title = t || 'New Chat'; saveChats();
   }
 }
-
-function deleteChat(id) {
-  const c = getChat(id);
-  if (!c) return;
+function deleteChat(id){
+  const c = getChat(id); if (!c) return;
   if (!confirm(`Hapus chat "${c.title || 'Untitled'}"?`)) return;
   state.chats = state.chats.filter(x => x.id !== id);
-  saveChats();
-  toast('Chat dihapus', 'info', 1400);
-  if (state.activeChatId === id) {
-    state.activeChatId = null;
-    location.hash = '#/history';
-  } else {
-    renderHistoryView();
-  }
+  saveChats(); toast('Chat dihapus', 'info', 1400);
+  if (state.activeChatId === id) { state.activeChatId = null; location.hash = '#/history'; }
+  else renderHistoryView();
 }
-
-function renameChat(id) {
-  const c = getChat(id);
-  if (!c) return;
+function renameChat(id){
+  const c = getChat(id); if (!c) return;
   const name = prompt('Nama baru untuk chat ini:', c.title || '');
   if (name === null) return;
-  const t = name.trim() || 'Untitled chat';
-  c.title = t;
+  c.title = name.trim() || 'Untitled chat';
   c.updatedAt = Date.now();
-  saveChats();
-  toast('Chat di-rename', 'success', 1300);
-  renderHistoryView();
+  saveChats(); toast('Chat di-rename', 'success', 1300); renderHistoryView();
 }
-
-function exportChat(id) {
+function exportChat(id){
   const c = getChat(id);
   if (!c || !c.messages.length) { toast('Chat kosong', 'error'); return; }
   let txt = `HAMZ AI HUB — Chat Export\nTitle: ${c.title}\nDate: ${new Date(c.updatedAt).toLocaleString('id-ID')}\n${'='.repeat(50)}\n\n`;
-  for (const m of c.messages) {
-    txt += `[${m.role === 'user' ? 'You' : 'AI'}]\n${m.content}\n\n`;
-  }
-  const blob = new Blob([txt], { type: 'text/plain;charset=utf-8' });
+  for (const m of c.messages) txt += `[${m.role === 'user' ? 'You' : 'AI'}]\n${m.content}\n\n`;
+  const blob = new Blob([txt], { type:'text/plain;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
   a.download = `hamz-chat-${(c.title || 'chat').replace(/[^\w\-]+/g, '_').slice(0, 40)}.txt`;
-  a.click();
-  URL.revokeObjectURL(url);
+  a.click(); URL.revokeObjectURL(url);
   toast('Chat diexport', 'success', 1500);
 }
 
-/* =========================================================================
-   VIEWS — CHAT DETAIL
-   ========================================================================= */
-function renderChatDetailView(chatId) {
+/* =========================================================
+   VIEWS — CHAT DETAIL (with file + image upload)
+   ========================================================= */
+function renderChatDetailView(chatId){
   const c = getChat(chatId);
-  if (!c) {
-    $('#app').innerHTML = `<section class="view active"><div class="container"><div class="empty-state"><h3>Chat tidak ditemukan</h3></div></div></section>`;
-    return;
-  }
+  if (!c) { $('#app').innerHTML = `<section class="view active"><div class="container"><div class="empty-state"><h3>Chat tidak ditemukan</h3></div></div></section>`; return; }
   state.activeChatId = chatId;
 
   $('#app').innerHTML = `
@@ -1537,13 +1786,18 @@ function renderChatDetailView(chatId) {
           </div>
           <div class="chat-body" id="chatBody"></div>
           <div class="chat-input-wrap">
+            <div class="chat-pending" id="chatPending"></div>
             <div class="chat-input-row">
+              <button class="attach-btn" id="chatAttachBtn" type="button" title="Lampirkan file/gambar">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+              </button>
+              <input type="file" id="chatFileInput" style="display:none" accept=".txt,.html,.htm,.css,.js,.json,.md,.py,.java,.cpp,.c,.cs,.php,.lua,.kt,.xml,.csv,.ts,.jsx,.tsx,.rb,.go,.rs,.swift,.sh,.yml,.yaml,.png,.jpg,.jpeg,.webp">
               <textarea id="chatInput" class="input" rows="1" placeholder="Tulis pesan… (Enter kirim, Shift+Enter baris baru)"></textarea>
               <button class="btn btn-primary" id="chatSend" aria-label="Kirim">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
               </button>
             </div>
-            <div class="chat-hint">Model: <span id="modelLabel">${escapeHtml(state.settings.model)}</span> · Temp: ${state.settings.temperature}</div>
+            <div class="chat-hint">Model: <span id="modelLabel">${escapeHtml(modelLabel(state.settings.model))}</span></div>
           </div>
         </div>
       </div>
@@ -1552,62 +1806,126 @@ function renderChatDetailView(chatId) {
   const body = $('#chatBody');
   const input = $('#chatInput');
   const sendBtn = $('#chatSend');
+  const attachBtn = $('#chatAttachBtn');
+  const fileInput = $('#chatFileInput');
+  const pendingEl = $('#chatPending');
 
-  function renderMessages() {
+  let pendingAttachments = []; // { type:'text'|'image', name, size, content, dataUrl, dim }
+
+  function renderMessages(){
     if (!c.messages.length) {
-      body.innerHTML = `
-        <div class="chat-empty">
-          <div class="ce-icon">💬</div>
-          <h3>Mulai percakapan</h3>
-          <p>Ketik pesan di bawah untuk mulai berkomunikasi dengan AI.</p>
-        </div>`;
+      body.innerHTML = `<div class="chat-empty"><div class="ce-icon">💬</div><h3>Mulai percakapan</h3><p>Ketik pesan, atau lampirkan file & gambar 📎 untuk dianalisis.</p></div>`;
       return;
     }
-    body.innerHTML = c.messages.map((m, i) => `
-      <div class="msg ${m.role}">
-        <div class="msg-role">${m.role === 'user' ? 'You' : 'AI'}</div>
-        <div class="msg-content">${m.role === 'assistant' ? renderMarkdown(m.content) : escapeHtml(m.content)}</div>
-        <div class="msg-actions">
-          <button class="mini-btn" data-copy-msg="${i}">Copy</button>
-          ${m.role === 'assistant' && i === c.messages.length - 1 ? `<button class="mini-btn" data-regen="1">Regenerate</button>` : ''}
-        </div>
-      </div>`).join('');
+    body.innerHTML = c.messages.map((m, i) => {
+      const atts = m.attachments || [];
+      const attHtml = atts.length ? `<div style="display:flex;flex-direction:column;gap:6px;margin-bottom:6px">${atts.map(a => a.type === 'image'
+        ? `<div class="msg-attachment"><img src="${a.dataUrl}" alt="attachment"><div><div class="att-name">${escapeHtml(a.name)}</div><div style="font-size:11px;margin-top:2px">${fmtBytes(a.size)}${a.dim ? ' · ' + a.dim.w + '×' + a.dim.h : ''}</div></div></div>`
+        : `<div class="msg-attachment"><span style="font-size:16px">📎</span><div style="min-width:0"><div class="att-name">${escapeHtml(a.name)}</div><div style="font-size:11px;margin-top:2px">${fmtBytes(a.size)}${a.lines ? ' · ' + a.lines + ' lines' : ''}</div></div></div>`).join('')}</div>` : '';
+      return `
+        <div class="msg ${m.role}">
+          <div class="msg-role">${m.role === 'user' ? 'You' : 'AI'}</div>
+          ${attHtml}
+          <div class="msg-content">${m.role === 'assistant' ? renderMarkdown(m.content) : escapeHtml(m.content)}</div>
+          <div class="msg-actions">
+            <button class="mini-btn" data-copy-msg="${i}">Copy</button>
+            ${m.role === 'assistant' && i === c.messages.length - 1 ? `<button class="mini-btn" data-regen="1">Regenerate</button>` : ''}
+          </div>
+        </div>`;
+    }).join('');
     body.scrollTop = body.scrollHeight;
   }
 
-  function renderStreaming(partial) {
-    // Re-render with streaming text on last assistant message
+  function renderStreaming(partial){
     let existing = body.querySelector('.msg.streaming');
     if (!existing) {
-      if (c.messages.length && c.messages[c.messages.length - 1].role === 'user') {
-        // No assistant bubble yet, add one
-      }
       const el = document.createElement('div');
       el.className = 'msg assistant streaming';
       el.innerHTML = `<div class="msg-role">AI</div><div class="msg-content"></div>`;
       body.appendChild(el);
       existing = el;
     }
-    const contentEl = existing.querySelector('.msg-content');
-    contentEl.innerHTML = renderMarkdown(partial) + '<span class="typing-cursor"></span>';
+    existing.querySelector('.msg-content').innerHTML = renderMarkdown(partial) + '<span class="typing-cursor"></span>';
     body.scrollTop = body.scrollHeight;
   }
+  function removeStreaming(){ const el = body.querySelector('.msg.streaming'); if (el) el.remove(); }
 
-  function removeStreaming() {
-    const el = body.querySelector('.msg.streaming');
-    if (el) el.remove();
+  function renderPending(){
+    if (!pendingAttachments.length) { pendingEl.innerHTML = ''; return; }
+    pendingEl.innerHTML = pendingAttachments.map((a, i) => `
+      <div class="pending-chip">
+        ${a.type === 'image' ? `<img src="${a.dataUrl}" alt="">` : '<span>📎</span>'}
+        <span class="pc-name">${escapeHtml(a.name)}</span>
+        <span style="font-size:10.5px;color:var(--text-mute)">${fmtBytes(a.size)}</span>
+        <button class="pc-x" data-remove-att="${i}" type="button" aria-label="Hapus">✕</button>
+      </div>`).join('');
+    pendingEl.querySelectorAll('[data-remove-att]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        pendingAttachments.splice(Number(btn.dataset.removeAtt), 1);
+        renderPending();
+      });
+    });
   }
 
-  async function doSend(userText) {
+  async function handleFiles(files){
+    const arr = Array.from(files || []);
+    for (const file of arr) {
+      const v = validateFile(file);
+      if (!v.ok) { toast(`${file.name}: ${v.msg}`, 'error', 3200); continue; }
+      try {
+        if (v.isImg) {
+          const dataUrl = await readImageFile(file);
+          const dim = await getImageDimensions(dataUrl);
+          pendingAttachments.push({ type:'image', name:file.name, size:file.size, dataUrl, dim });
+        } else {
+          const content = await readTextFile(file);
+          const lines = content.split('\n').length;
+          pendingAttachments.push({ type:'text', name:file.name, size:file.size, content, lines });
+        }
+      } catch (err) { toast(`${file.name}: ${err.message}`, 'error', 3000); }
+    }
+    renderPending();
+  }
+
+  attachBtn.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', (e) => { handleFiles(e.target.files); fileInput.value = ''; });
+
+  // Drag & drop on chat body
+  ['dragenter','dragover'].forEach(ev => body.addEventListener(ev, (e) => { e.preventDefault(); body.style.background = 'var(--accent-soft)'; }));
+  ['dragleave','drop'].forEach(ev => body.addEventListener(ev, (e) => { e.preventDefault(); body.style.background = ''; }));
+  body.addEventListener('drop', (e) => { if (e.dataTransfer?.files?.length) handleFiles(e.dataTransfer.files); });
+
+  async function doSend(userText){
     if (state.streaming) return;
     const text = userText !== undefined ? userText : input.value.trim();
-    if (!text) return;
+    const hasAtts = pendingAttachments.length > 0;
+    if (!text && !hasAtts) return;
 
-    c.messages.push({ role: 'user', content: text });
+    const attsCopy = pendingAttachments.slice();
+    const hasImage = attsCopy.some(a => a.type === 'image');
+    const hasTextFile = attsCopy.some(a => a.type === 'text');
+
+    // Build combined user message for AI
+    let combinedText = text || '(Analisis lampiran ini)';
+    if (hasTextFile) {
+      for (const a of attsCopy) {
+        if (a.type === 'text') {
+          combinedText += `\n\n--- FILE: ${a.name} (${a.lines} lines, ${fmtBytes(a.size)}) ---\n\`\`\`\n${a.content.slice(0, 30000)}${a.content.length > 30000 ? '\n...(truncated)' : ''}\n\`\`\``;
+        }
+      }
+    }
+
+    // Store message with attachments metadata
+    const userMsg = { role:'user', content: text || '(analisis lampiran)', attachments: attsCopy.map(a => ({
+      type: a.type, name: a.name, size: a.size, dataUrl: a.type === 'image' ? a.dataUrl : undefined, lines: a.lines, dim: a.dim,
+    })) };
+    c.messages.push(userMsg);
     c.updatedAt = Date.now();
-    updateChatTitle(c.id, text);
+    updateChatTitle(c.id, text || attsCopy[0]?.name || 'Attachment');
     $('#chatTitle').textContent = c.title;
     if (userText === undefined) { input.value = ''; input.style.height = 'auto'; }
+    pendingAttachments = [];
+    renderPending();
     renderMessages();
 
     sendBtn.disabled = true;
@@ -1616,24 +1934,39 @@ function renderChatDetailView(chatId) {
     sendBtn.innerHTML = '⏹';
     sendBtn.title = 'Stop';
 
-    // Build messages with system prompt
+    // Build system + history
     const systemMsgs = [];
-    if (state.settings.systemPrompt && state.settings.systemPrompt.trim()) {
-      systemMsgs.push({ role: 'system', content: state.settings.systemPrompt.trim() });
+    if (state.settings.systemPrompt && state.settings.systemPrompt.trim()) systemMsgs.push({ role:'system', content: state.settings.systemPrompt.trim() });
+    else systemMsgs.push({ role:'system', content: 'You are HAMZ AI, a helpful and concise assistant. Answer in the same language the user uses. Use markdown when helpful.' });
+
+    // Build payload. If there is image, use multimodal for the last user message.
+    const historyForApi = c.messages.slice(-20).map(m => ({ role: m.role, content: m.content }));
+    // Replace last message with combined text (with file contents included)
+    if (historyForApi.length) historyForApi[historyForApi.length - 1] = { role:'user', content: combinedText };
+
+    const selectedModel = hasImage ? (state.settings.visionModel || OPENAI_VISION_MODEL_DEFAULT) : (state.settings.model || OPENAI_MODEL);
+    $('#modelLabel').textContent = modelLabel(selectedModel);
+
+    let payload;
+    if (hasImage) {
+      // Build multimodal: attach all images, plus the text
+      const imageParts = attsCopy.filter(a => a.type === 'image').map(a => ({ type:'image_url', image_url:{ url: a.dataUrl } }));
+      const userContent = [{ type:'text', text: combinedText }, ...imageParts];
+      payload = [...systemMsgs, ...historyForApi.slice(0, -1), { role:'user', content: userContent }];
     } else {
-      systemMsgs.push({ role: 'system', content: 'You are HAMZ AI, a helpful and concise assistant. Answer in the same language the user uses. Use markdown when helpful.' });
+      payload = [...systemMsgs, ...historyForApi];
     }
-    const payload = [...systemMsgs, ...c.messages.slice(-20)];
 
     let full = '';
     try {
       full = await callAI(payload, {
+        model: selectedModel,
         stream: true,
         signal: state.abortController.signal,
-        onChunk: (delta, sofar) => { renderStreaming(sofar); },
+        onChunk: (delta, sofar) => renderStreaming(sofar),
       });
       removeStreaming();
-      c.messages.push({ role: 'assistant', content: full });
+      c.messages.push({ role:'assistant', content: full });
       c.updatedAt = Date.now();
       saveChats();
       renderMessages();
@@ -1643,25 +1976,18 @@ function renderChatDetailView(chatId) {
       const msg = err?.message || 'Terjadi kesalahan.';
       if (msg === 'Dihentikan.' || msg === 'Request dibatalkan.') {
         if (full.trim()) {
-          c.messages.push({ role: 'assistant', content: full });
-          c.updatedAt = Date.now();
-          saveChats();
-          renderMessages();
+          c.messages.push({ role:'assistant', content: full });
+          c.updatedAt = Date.now(); saveChats(); renderMessages();
           toast('Dihentikan', 'info', 1200);
         } else {
-          // rollback user message
-          c.messages.pop();
-          saveChats();
-          renderMessages();
+          c.messages.pop(); saveChats(); renderMessages();
           toast('Dibatalkan', 'info', 1200);
         }
       } else {
-        body.insertAdjacentHTML('beforeend',
-          `<div class="msg assistant error"><div class="msg-role">System</div><div class="msg-content">${escapeHtml(msg)}</div></div>`);
+        body.insertAdjacentHTML('beforeend', `<div class="msg assistant error"><div class="msg-role">System</div><div class="msg-content">${escapeHtml(msg)}</div></div>`);
         body.scrollTop = body.scrollHeight;
         toast(msg, 'error', 3600);
-        c.messages.pop();
-        saveChats();
+        c.messages.pop(); saveChats();
       }
     } finally {
       state.streaming = false;
@@ -1673,58 +1999,32 @@ function renderChatDetailView(chatId) {
     }
   }
 
-  async function regenerate() {
+  async function regenerate(){
     if (state.streaming || c.messages.length < 2) return;
-    // Remove last assistant
     if (c.messages[c.messages.length - 1].role === 'assistant') c.messages.pop();
-    saveChats();
-    renderMessages();
-    // Re-send with same user message
+    saveChats(); renderMessages();
     const lastUser = c.messages[c.messages.length - 1];
     if (!lastUser || lastUser.role !== 'user') return;
-    // simulate resend
     const text = lastUser.content;
-    c.messages.pop(); // pop to re-add via doSend
+    const atts = lastUser.attachments || [];
+    pendingAttachments = atts.map(a => ({ ...a }));
+    c.messages.pop();
+    renderPending();
     await doSend(text);
   }
 
   body.addEventListener('click', (e) => {
     const copyBtn = e.target.closest('[data-copy-msg]');
-    if (copyBtn) {
-      const idx = Number(copyBtn.dataset.copyMsg);
-      const m = c.messages[idx];
-      if (m) copyText(m.content, 'Pesan disalin');
-      return;
-    }
+    if (copyBtn) { const m = c.messages[Number(copyBtn.dataset.copyMsg)]; if (m) copyText(m.content, 'Pesan disalin'); return; }
     const regenBtn = e.target.closest('[data-regen]');
     if (regenBtn) { regenerate(); return; }
     const codeBtn = e.target.closest('[data-copy-code]');
-    if (codeBtn) {
-      const id = codeBtn.dataset.copyCode;
-      const el = document.getElementById(id);
-      if (el) copyText(el.textContent, 'Kode disalin');
-    }
+    if (codeBtn) { const el = document.getElementById(codeBtn.dataset.copyCode); if (el) copyText(el.textContent, 'Kode disalin'); }
   });
 
-  sendBtn.addEventListener('click', () => {
-    if (state.streaming) {
-      // stop
-      if (state.abortController) state.abortController.abort();
-    } else {
-      doSend();
-    }
-  });
-
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      doSend();
-    }
-  });
-  input.addEventListener('input', () => {
-    input.style.height = 'auto';
-    input.style.height = Math.min(input.scrollHeight, 160) + 'px';
-  });
+  sendBtn.addEventListener('click', () => { if (state.streaming) { if (state.abortController) state.abortController.abort(); } else doSend(); });
+  input.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); doSend(); } });
+  input.addEventListener('input', () => { input.style.height = 'auto'; input.style.height = Math.min(input.scrollHeight, 160) + 'px'; });
 
   $('#backToHistory').addEventListener('click', () => { location.hash = '#/history'; });
   $('#renameBtn').addEventListener('click', () => renameChat(c.id));
@@ -1734,29 +2034,24 @@ function renderChatDetailView(chatId) {
     const txt = c.messages.map(m => `${m.role === 'user' ? 'You' : 'AI'}: ${m.content}`).join('\n\n');
     copyText(txt, 'Seluruh percakapan disalin');
   });
-  $('#newChatBtn2').addEventListener('click', () => {
-    const id = createNewChat();
-    location.hash = `#/chat/${id}`;
-  });
+  $('#newChatBtn2').addEventListener('click', () => { const id = createNewChat(); location.hash = `#/chat/${id}`; });
   $('#clearChatBtn').addEventListener('click', () => {
     if (!c.messages.length) return;
     if (!confirm('Hapus semua pesan dalam chat ini?')) return;
-    c.messages = [];
-    c.updatedAt = Date.now();
-    saveChats();
-    renderMessages();
-    toast('Percakapan dibersihkan', 'info', 1400);
+    c.messages = []; c.updatedAt = Date.now(); saveChats();
+    renderMessages(); toast('Percakapan dibersihkan', 'info', 1400);
   });
   $('#deleteChatBtn').addEventListener('click', () => deleteChat(c.id));
 
   renderMessages();
+  renderPending();
   if (window.innerWidth > 900) setTimeout(() => input.focus(), 150);
 }
 
-/* =========================================================================
+/* =========================================================
    VIEWS — TOOL DETAIL (form-based)
-   ========================================================================= */
-function fieldHtml(f) {
+   ========================================================= */
+function fieldHtml(f){
   const req = f.required ? ' <span class="req">*</span>' : '';
   const label = `<label for="f-${f.key}">${escapeHtml(f.label)}${req}</label>`;
   if (f.type === 'textarea') {
@@ -1771,7 +2066,7 @@ function fieldHtml(f) {
   return `<div class="field">${label}<input class="input" type="text" id="f-${f.key}" data-input="${f.key}" placeholder="${escapeHtml(f.placeholder || '')}" /></div>`;
 }
 
-function renderFormView(tool) {
+function renderFormView(tool){
   const cat = catById(tool.cat);
   const isFav = state.favorites.has(tool.id);
 
@@ -1791,7 +2086,6 @@ function renderFormView(tool) {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="${isFav ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             </button>
           </div>
-
           <div class="tool-layout">
             <div class="panel">
               <form id="toolForm" autocomplete="off">
@@ -1802,7 +2096,6 @@ function renderFormView(tool) {
                 </div>
               </form>
             </div>
-
             <div class="panel output-panel">
               <div class="output-head">
                 <span class="dot-row"><i></i><i></i><i></i></span>
@@ -1814,10 +2107,7 @@ function renderFormView(tool) {
                 </div>
               </div>
               <div class="output-body md" id="outputBody">
-                <div class="output-placeholder">
-                  <span class="op-icon">${tool.icon}</span>
-                  <span>Hasil akan muncul di sini.<br>Isi form dan klik Generate.</span>
-                </div>
+                <div class="output-placeholder"><span class="op-icon">${tool.icon}</span><span>Hasil akan muncul di sini.<br>Isi form dan klik Generate.</span></div>
               </div>
             </div>
           </div>
@@ -1834,69 +2124,43 @@ function renderFormView(tool) {
   const resetBtn = $('#resetBtn');
   let currentOutput = '';
   let lastValues = null;
-
   const placeholder = `<div class="output-placeholder"><span class="op-icon">${tool.icon}</span><span>Hasil akan muncul di sini.</span></div>`;
 
-  function collectValues() {
-    const values = {};
-    $$('[data-input]', form).forEach(el => { values[el.dataset.input] = el.value; });
-    return values;
-  }
-
-  function validate(values) {
+  function collectValues(){ const v = {}; $$('[data-input]', form).forEach(el => { v[el.dataset.input] = el.value; }); return v; }
+  function validate(values){
     const missing = tool.fields.find(f => f.required && !String(values[f.key] || '').trim());
-    if (missing) {
-      toast(`Isi dulu: ${missing.label}`, 'error');
+    if (missing) { toast(`Isi dulu: ${missing.label}`, 'error');
       const el = $(`[data-input="${missing.key}"]`);
       if (el) { el.focus(); el.style.borderColor = 'var(--danger)'; setTimeout(() => el.style.borderColor = '', 1500); }
-      return false;
-    }
+      return false; }
     return true;
   }
 
-  async function generate(values) {
+  async function generate(values){
     if (state.streaming) return;
-
-    outputBody.innerHTML = `
-      <div class="loader">
-        <div class="loader-label"><span class="spinner"></span> Menghubungi AI…</div>
-        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-        <div class="bar"></div><div class="bar"></div>
-      </div>`;
+    outputBody.innerHTML = `<div class="loader"><div class="loader-label"><span class="spinner"></span> Menghubungi AI…</div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>`;
     genBtn.disabled = true; copyBtn.disabled = true; clearOut.disabled = true; regenBtn.disabled = true;
     genBtn.innerHTML = '<span class="spinner"></span> Generating…';
-
     markRecent(tool.id);
     state.streaming = true;
     state.abortController = new AbortController();
-
     try {
       const messages = tool.build(values);
-      // Add custom system prompt if set and not already present
       let finalMessages = messages;
-      if (state.settings.systemPrompt && state.settings.systemPrompt.trim()
-          && !messages.some(m => m.role === 'system')) {
+      if (state.settings.systemPrompt && state.settings.systemPrompt.trim() && !messages.some(m => m.role === 'system'))
         finalMessages = [{ role:'system', content: state.settings.systemPrompt.trim() }, ...messages];
-      }
-      const result = await callAI(finalMessages, {
-        signal: state.abortController.signal,
-        onChunk: null,
-      });
+      const result = await callAI(finalMessages, { signal: state.abortController.signal });
       currentOutput = result;
       outputBody.innerHTML = renderMarkdown(result);
-      copyBtn.disabled = false;
-      clearOut.disabled = false;
-      regenBtn.disabled = false;
+      copyBtn.disabled = false; clearOut.disabled = false; regenBtn.disabled = false;
       toast('Hasil siap', 'success', 1200);
     } catch (err) {
       const msg = err?.message || 'Terjadi kesalahan.';
       outputBody.innerHTML = `<div class="output-error"><strong>Gagal:</strong> ${escapeHtml(msg)}</div>`;
       toast(msg, 'error', 3600);
     } finally {
-      state.streaming = false;
-      state.abortController = null;
-      genBtn.disabled = false;
-      genBtn.innerHTML = '<span>✨</span> Generate';
+      state.streaming = false; state.abortController = null;
+      genBtn.disabled = false; genBtn.innerHTML = '<span>✨</span> Generate';
     }
   }
 
@@ -1907,45 +2171,990 @@ function renderFormView(tool) {
     lastValues = { ...values };
     await generate(values);
   });
-
   resetBtn.addEventListener('click', () => {
-    form.reset();
-    currentOutput = '';
-    lastValues = null;
+    form.reset(); currentOutput = ''; lastValues = null;
     outputBody.innerHTML = placeholder;
     copyBtn.disabled = true; clearOut.disabled = true; regenBtn.disabled = true;
     toast('Input dibersihkan', 'info', 1200);
   });
-
   copyBtn.addEventListener('click', () => copyText(currentOutput, 'Hasil disalin'));
-
   clearOut.addEventListener('click', () => {
-    currentOutput = '';
-    outputBody.innerHTML = placeholder;
+    currentOutput = ''; outputBody.innerHTML = placeholder;
     copyBtn.disabled = true; clearOut.disabled = true; regenBtn.disabled = true;
   });
-
-  regenBtn.addEventListener('click', async () => {
-    if (lastValues && !state.streaming) await generate(lastValues);
-  });
-
-  // Delegate code copy buttons
+  regenBtn.addEventListener('click', async () => { if (lastValues && !state.streaming) await generate(lastValues); });
   outputBody.addEventListener('click', (e) => {
     const codeBtn = e.target.closest('[data-copy-code]');
-    if (codeBtn) {
-      const el = document.getElementById(codeBtn.dataset.copyCode);
-      if (el) copyText(el.textContent, 'Kode disalin');
-    }
+    if (codeBtn) { const el = document.getElementById(codeBtn.dataset.copyCode); if (el) copyText(el.textContent, 'Kode disalin'); }
   });
-
   const firstInput = $('[data-input]', form);
   if (firstInput && window.innerWidth > 900) firstInput.focus();
 }
 
-/* =========================================================================
+/* =========================================================
+   VIEWS — FILE ANALYZER
+   ========================================================= */
+function renderFileAnalyzerView(){
+  const tool = toolById('file-analyzer');
+  const cat = catById(tool.cat);
+  const isFav = state.favorites.has(tool.id);
+  markRecent(tool.id);
+
+  $('#app').innerHTML = `
+    <section class="view active">
+      <div class="container">
+        <div class="tool-detail">
+          <a class="back-link" href="#/tools">← Kembali ke tools</a>
+          <div class="tool-hero">
+            <div class="tool-icon">${tool.icon}</div>
+            <div class="tool-hero-info">
+              <h1>${escapeHtml(tool.name)}</h1>
+              <p>${escapeHtml(tool.desc)}</p>
+              <div style="margin-top:10px"><span class="chip">${cat.icon} ${cat.label}</span></div>
+            </div>
+            <button class="fav-btn ${isFav ? 'active' : ''}" data-fav="${tool.id}" aria-label="Favorite">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="${isFav ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </button>
+          </div>
+
+          <div class="tool-layout">
+            <div class="panel">
+              <div id="fileZoneWrap">
+                <div class="dropzone" id="fileDropzone">
+                  <div class="dz-icon">📂</div>
+                  <div class="dz-title">Drag & Drop atau pilih file</div>
+                  <div class="dz-sub">Teks / kode: .txt .html .css .js .json .md .py .java .cpp .c .cs .php .lua .kt .xml .csv</div>
+                  <input type="file" id="fileInput" accept=".txt,.html,.htm,.css,.js,.json,.md,.py,.java,.cpp,.c,.cs,.php,.lua,.kt,.xml,.csv,.ts,.jsx,.tsx,.rb,.go,.rs,.swift,.sh,.yml,.yaml">
+                </div>
+              </div>
+              <div id="fileInfoWrap" style="margin-top:14px"></div>
+
+              <div class="info-box" style="margin-top:14px;font-size:12.3px">
+                🔒 File diproses sebagai data untuk permintaan AI dan <strong>tidak dieksekusi</strong>. File tidak disimpan ke localStorage.
+              </div>
+            </div>
+
+            <div class="panel output-panel">
+              <div class="output-head">
+                <span class="dot-row"><i></i><i></i><i></i></span>
+                <span class="output-title">Analysis</span>
+                <div class="output-actions">
+                  <button class="mini-btn" id="copyBtn" disabled>Copy</button>
+                  <button class="mini-btn" id="clearOutBtn" disabled>Clear</button>
+                </div>
+              </div>
+              <div class="field" id="analysisControls" style="margin-bottom:14px">
+                <label for="analysisMode">Mode Analisis</label>
+                <select class="input" id="analysisMode">
+                  <option value="Summarize">Summarize</option>
+                  <option value="Explain">Explain</option>
+                  <option value="Find Bugs">Find Bugs</option>
+                  <option value="Review Code">Review Code</option>
+                  <option value="Improve Code">Improve Code</option>
+                  <option value="Find Security Issues">Find Security Issues</option>
+                  <option value="Extract Information">Extract Information</option>
+                  <option value="Generate Documentation">Generate Documentation</option>
+                  <option value="Translate">Translate</option>
+                  <option value="Ask AI About File">Ask AI About File</option>
+                </select>
+              </div>
+              <div class="field" id="askWrap" style="display:none;margin-bottom:14px">
+                <label for="askQuestion">Pertanyaan kamu</label>
+                <textarea class="input" id="askQuestion" rows="3" placeholder="Contoh: Kenapa kode ini error?"></textarea>
+              </div>
+              <div class="form-actions" style="margin-top:0">
+                <button class="btn btn-primary" id="analyzeBtn" disabled><span>✨</span> Analyze</button>
+                <button class="btn" id="clearFileBtn" disabled>Clear File</button>
+              </div>
+              <div class="output-body md" id="outputBody" style="margin-top:14px">
+                <div class="output-placeholder"><span class="op-icon">📂</span><span>Upload file, pilih mode, lalu klik Analyze.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>`;
+
+  const dropzone = $('#fileDropzone');
+  const fileInput = $('#fileInput');
+  const infoWrap = $('#fileInfoWrap');
+  const analyzeBtn = $('#analyzeBtn');
+  const clearFileBtn = $('#clearFileBtn');
+  const copyBtn = $('#copyBtn');
+  const clearOutBtn = $('#clearOutBtn');
+  const outputBody = $('#outputBody');
+  const modeSelect = $('#analysisMode');
+  const askWrap = $('#askWrap');
+  const askQuestion = $('#askQuestion');
+
+  let currentFile = null; // { name, size, ext, content, lines, chars }
+
+  function renderFileInfo(){
+    if (!currentFile) { infoWrap.innerHTML = ''; return; }
+    const preview = currentFile.content.slice(0, 4000) + (currentFile.content.length > 4000 ? '\n…(truncated preview)' : '');
+    infoWrap.innerHTML = `
+      <div class="file-info-card">
+        <div class="file-info-head">
+          <div class="fic-icon">📄</div>
+          <div class="fic-text">
+            <div class="fic-name">${escapeHtml(currentFile.name)}</div>
+            <div class="fic-ext">${escapeHtml(currentFile.ext || 'text')}</div>
+          </div>
+          <button class="mini-btn btn-danger" id="removeFileBtn">Remove</button>
+        </div>
+        <div class="file-meta-grid">
+          <div class="file-meta-item"><div class="fm-label">Size</div><div class="fm-value">${fmtBytes(currentFile.size)}</div></div>
+          <div class="file-meta-item"><div class="fm-label">Lines</div><div class="fm-value">${currentFile.lines.toLocaleString('id-ID')}</div></div>
+          <div class="file-meta-item"><div class="fm-label">Characters</div><div class="fm-value">${currentFile.chars.toLocaleString('id-ID')}</div></div>
+        </div>
+        <div>
+          <div style="font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-mute);margin-bottom:6px">Preview</div>
+          <div class="file-preview">${escapeHtml(preview)}</div>
+        </div>
+      </div>`;
+    $('#removeFileBtn').addEventListener('click', clearFile);
+  }
+
+  function clearFile(){
+    currentFile = null;
+    fileInput.value = '';
+    renderFileInfo();
+    analyzeBtn.disabled = true;
+    clearFileBtn.disabled = true;
+    outputBody.innerHTML = `<div class="output-placeholder"><span class="op-icon">📂</span><span>Upload file, pilih mode, lalu klik Analyze.</span></div>`;
+    copyBtn.disabled = true; clearOutBtn.disabled = true;
+    toast('File dihapus', 'info', 1200);
+  }
+
+  async function loadFile(file){
+    const v = validateFile(file);
+    if (!v.ok) { toast(v.msg, 'error', 3200); return; }
+    if (!v.isText) { toast('Tool ini hanya untuk file teks/kode. Untuk gambar gunakan AI Image Analyzer.', 'error', 3600); return; }
+    try {
+      const content = await readTextFile(file);
+      currentFile = {
+        name: file.name,
+        size: file.size,
+        ext: getExt(file.name).replace('.', ''),
+        content,
+        lines: content.split('\n').length,
+        chars: content.length,
+      };
+      renderFileInfo();
+      analyzeBtn.disabled = false;
+      clearFileBtn.disabled = false;
+      toast(`File dimuat: ${file.name}`, 'success', 1600);
+    } catch (err) { toast(err.message, 'error', 3000); }
+  }
+
+  dropzone.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', (e) => { if (e.target.files[0]) loadFile(e.target.files[0]); });
+  ['dragenter','dragover'].forEach(ev => dropzone.addEventListener(ev, (e) => { e.preventDefault(); dropzone.classList.add('dragover'); }));
+  ['dragleave','drop'].forEach(ev => dropzone.addEventListener(ev, (e) => { e.preventDefault(); dropzone.classList.remove('dragover'); }));
+  dropzone.addEventListener('drop', (e) => { if (e.dataTransfer?.files?.[0]) loadFile(e.dataTransfer.files[0]); });
+
+  modeSelect.addEventListener('change', () => {
+    askWrap.style.display = modeSelect.value === 'Ask AI About File' ? 'block' : 'none';
+  });
+
+  analyzeBtn.addEventListener('click', async () => {
+    if (!currentFile || state.streaming) return;
+    const mode = modeSelect.value;
+    let userPrompt = '';
+    if (mode === 'Ask AI About File') {
+      const q = askQuestion.value.trim();
+      if (!q) { toast('Tulis pertanyaan kamu dulu', 'error'); askQuestion.focus(); return; }
+      userPrompt = `File name: ${currentFile.name}\n\nFile content:\n\`\`\`\n${currentFile.content.slice(0, 30000)}\n\`\`\`\n\nQuestion: ${q}`;
+    } else {
+      const modeInstr = {
+        'Summarize': 'Summarize the file content clearly. Include purpose, key sections, and important points.',
+        'Explain': 'Explain what this file does step by step. Break down the structure and logic.',
+        'Find Bugs': 'Analyze the file for possible bugs. List each bug with line references if possible, explain why it is a bug, and suggest fixes.',
+        'Review Code': 'Review this code. Comment on structure, readability, naming, and best practices. Give a score 1–10 with reasoning.',
+        'Improve Code': 'Suggest improvements to make this code cleaner, faster, and more maintainable. Provide an improved version in a code block.',
+        'Find Security Issues': 'Scan for security issues visible from the code (injection, XSS, secrets, unsafe input). List each issue with severity and fix.',
+        'Extract Information': 'Extract key information: functions, classes, imports, config, data, dependencies. Format as a structured list.',
+        'Generate Documentation': 'Write documentation for this file: overview, API reference, usage examples, and notes.',
+        'Translate': 'Translate the meaningful text and comments in this file into English. Keep code untouched.',
+      }[mode] || 'Analyze this file.';
+      userPrompt = `File name: ${currentFile.name}\nFile type: ${currentFile.ext || 'text'}\nSize: ${fmtBytes(currentFile.size)} · Lines: ${currentFile.lines}\n\nTask: ${mode}\n\n${modeInstr}\n\nFile content:\n\`\`\`${currentFile.ext || ''}\n${currentFile.content.slice(0, 30000)}${currentFile.content.length > 30000 ? '\n...(truncated)' : ''}\n\`\`\``;
+    }
+
+    outputBody.innerHTML = `<div class="loader"><div class="loader-label"><span class="spinner"></span> Menganalisis file…</div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>`;
+    analyzeBtn.disabled = true; copyBtn.disabled = true; clearOutBtn.disabled = true;
+    analyzeBtn.innerHTML = '<span class="spinner"></span> Analyzing…';
+    state.streaming = true;
+    state.abortController = new AbortController();
+
+    try {
+      const messages = [
+        { role:'system', content:'You are a senior software engineer and analyst. Analyze files carefully. Return clear, well-structured markdown. Use code blocks where appropriate.' },
+        { role:'user', content: userPrompt },
+      ];
+      const result = await callAI(messages, { signal: state.abortController.signal, maxTokens: 3000 });
+      outputBody.innerHTML = renderMarkdown(result);
+      copyBtn.disabled = false; clearOutBtn.disabled = false;
+      toast('Analisis selesai', 'success', 1400);
+    } catch (err) {
+      const msg = err?.message || 'Terjadi kesalahan.';
+      outputBody.innerHTML = `<div class="output-error"><strong>Gagal:</strong> ${escapeHtml(msg)}</div>`;
+      toast(msg, 'error', 3600);
+    } finally {
+      state.streaming = false; state.abortController = null;
+      analyzeBtn.disabled = false; analyzeBtn.innerHTML = '<span>✨</span> Analyze';
+    }
+  });
+
+  clearFileBtn.addEventListener('click', clearFile);
+  copyBtn.addEventListener('click', () => copyText(outputBody.textContent || '', 'Hasil disalin'));
+  clearOutBtn.addEventListener('click', () => {
+    outputBody.innerHTML = `<div class="output-placeholder"><span class="op-icon">📂</span><span>Upload file, pilih mode, lalu klik Analyze.</span></div>`;
+    copyBtn.disabled = true; clearOutBtn.disabled = true;
+  });
+  outputBody.addEventListener('click', (e) => {
+    const codeBtn = e.target.closest('[data-copy-code]');
+    if (codeBtn) { const el = document.getElementById(codeBtn.dataset.copyCode); if (el) copyText(el.textContent, 'Kode disalin'); }
+  });
+}
+
+/* =========================================================
+   VIEWS — IMAGE ANALYZER
+   ========================================================= */
+function renderImageAnalyzerView(){
+  const tool = toolById('image-analyzer');
+  const cat = catById(tool.cat);
+  const isFav = state.favorites.has(tool.id);
+  markRecent(tool.id);
+
+  $('#app').innerHTML = `
+    <section class="view active">
+      <div class="container">
+        <div class="tool-detail">
+          <a class="back-link" href="#/tools">← Kembali ke tools</a>
+          <div class="tool-hero">
+            <div class="tool-icon">${tool.icon}</div>
+            <div class="tool-hero-info">
+              <h1>${escapeHtml(tool.name)}</h1>
+              <p>${escapeHtml(tool.desc)}</p>
+              <div style="margin-top:10px"><span class="chip">${cat.icon} ${cat.label}</span> <span class="chip" style="margin-left:6px">${escapeHtml(modelLabel(state.settings.visionModel))}</span></div>
+            </div>
+            <button class="fav-btn ${isFav ? 'active' : ''}" data-fav="${tool.id}" aria-label="Favorite">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="${isFav ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </button>
+          </div>
+
+          <div class="tool-layout">
+            <div class="panel">
+              <div class="dropzone" id="imgDropzone">
+                <div class="dz-icon">🖼️</div>
+                <div class="dz-title">Drag & Drop atau pilih gambar</div>
+                <div class="dz-sub">Format: PNG, JPG, JPEG, WEBP · Maks ${fmtBytes(MAX_IMAGE_FILE_SIZE)}</div>
+                <input type="file" id="imgInput" accept="image/png,image/jpeg,image/webp">
+              </div>
+              <div id="imgInfoWrap" style="margin-top:14px"></div>
+
+              <div class="field" id="imgModeWrap" style="margin-top:14px;display:none">
+                <label for="imgMode">Mode Analisis</label>
+                <select class="input" id="imgMode">
+                  <option value="Describe Image">Describe Image</option>
+                  <option value="Read Text / OCR">Read Text / OCR</option>
+                  <option value="Analyze Objects">Analyze Objects</option>
+                  <option value="Analyze Colors">Analyze Colors</option>
+                  <option value="Explain Diagram">Explain Diagram</option>
+                  <option value="Analyze Screenshot">Analyze Screenshot</option>
+                  <option value="Ask Question">Ask Question</option>
+                </select>
+              </div>
+
+              <div class="field" id="imgAskWrap" style="display:none">
+                <label for="imgQuestion">Pertanyaan kamu</label>
+                <textarea class="input" id="imgQuestion" rows="3" placeholder="Contoh: Apa yang ada di gambar ini?"></textarea>
+              </div>
+
+              <div class="form-actions" style="margin-top:14px">
+                <button class="btn btn-primary" id="imgAnalyzeBtn" disabled><span>✨</span> Analyze Image</button>
+                <button class="btn" id="imgClearBtn" disabled>Clear</button>
+              </div>
+
+              <div class="info-box" style="margin-top:14px;font-size:12.3px">
+                🔒 Gambar hanya dikirim ke endpoint AI untuk analisis. Tidak disimpan ke localStorage.
+              </div>
+            </div>
+
+            <div class="panel output-panel">
+              <div class="output-head">
+                <span class="dot-row"><i></i><i></i><i></i></span>
+                <span class="output-title">Analysis</span>
+                <div class="output-actions">
+                  <button class="mini-btn" id="imgCopyBtn" disabled>Copy</button>
+                  <button class="mini-btn" id="imgClearOutBtn" disabled>Clear</button>
+                </div>
+              </div>
+              <div class="output-body md" id="imgOutputBody">
+                <div class="output-placeholder"><span class="op-icon">🖼️</span><span>Upload gambar, pilih mode, lalu klik Analyze.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>`;
+
+  const dropzone = $('#imgDropzone');
+  const fileInput = $('#imgInput');
+  const infoWrap = $('#imgInfoWrap');
+  const analyzeBtn = $('#imgAnalyzeBtn');
+  const clearBtn = $('#imgClearBtn');
+  const copyBtn = $('#imgCopyBtn');
+  const clearOutBtn = $('#imgClearOutBtn');
+  const outputBody = $('#imgOutputBody');
+  const modeWrap = $('#imgModeWrap');
+  const modeSelect = $('#imgMode');
+  const askWrap = $('#imgAskWrap');
+  const imgQuestion = $('#imgQuestion');
+
+  let currentImage = null; // { name, size, ext, dataUrl, dim, mime }
+
+  function renderImgInfo(){
+    if (!currentImage) { infoWrap.innerHTML = ''; return; }
+    infoWrap.innerHTML = `
+      <div class="file-info-card">
+        <div class="file-info-head">
+          <div class="fic-icon">🖼️</div>
+          <div class="fic-text">
+            <div class="fic-name">${escapeHtml(currentImage.name)}</div>
+            <div class="fic-ext">${escapeHtml(currentImage.ext || 'image')} · ${fmtBytes(currentImage.size)}</div>
+          </div>
+          <button class="mini-btn btn-danger" id="imgRemoveBtn">Remove</button>
+        </div>
+        <div class="file-meta-grid">
+          <div class="file-meta-item"><div class="fm-label">Type</div><div class="fm-value">${escapeHtml((currentImage.ext || 'image').toUpperCase())}</div></div>
+          <div class="file-meta-item"><div class="fm-label">Size</div><div class="fm-value">${fmtBytes(currentImage.size)}</div></div>
+          <div class="file-meta-item"><div class="fm-label">Resolution</div><div class="fm-value">${currentImage.dim.w} × ${currentImage.dim.h}</div></div>
+        </div>
+        <div class="image-preview"><img src="${currentImage.dataUrl}" alt="preview"></div>
+      </div>`;
+    $('#imgRemoveBtn').addEventListener('click', clearImage);
+  }
+
+  function clearImage(){
+    currentImage = null; fileInput.value = '';
+    renderImgInfo();
+    modeWrap.style.display = 'none';
+    askWrap.style.display = 'none';
+    analyzeBtn.disabled = true; clearBtn.disabled = true;
+    outputBody.innerHTML = `<div class="output-placeholder"><span class="op-icon">🖼️</span><span>Upload gambar, pilih mode, lalu klik Analyze.</span></div>`;
+    copyBtn.disabled = true; clearOutBtn.disabled = true;
+    toast('Gambar dihapus', 'info', 1200);
+  }
+
+  async function loadImage(file){
+    const v = validateFile(file);
+    if (!v.ok) { toast(v.msg, 'error', 3200); return; }
+    if (!v.isImg) { toast('Tool ini hanya untuk gambar. Gunakan File Analyzer untuk teks/kode.', 'error', 3600); return; }
+    try {
+      const dataUrl = await readImageFile(file);
+      const dim = await getImageDimensions(dataUrl);
+      currentImage = { name: file.name, size: file.size, ext: getExt(file.name).replace('.', ''), dataUrl, dim, mime: file.type };
+      renderImgInfo();
+      modeWrap.style.display = 'block';
+      analyzeBtn.disabled = false; clearBtn.disabled = false;
+      toast(`Gambar dimuat: ${file.name}`, 'success', 1600);
+    } catch (err) { toast(err.message, 'error', 3000); }
+  }
+
+  dropzone.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', (e) => { if (e.target.files[0]) loadImage(e.target.files[0]); });
+  ['dragenter','dragover'].forEach(ev => dropzone.addEventListener(ev, (e) => { e.preventDefault(); dropzone.classList.add('dragover'); }));
+  ['dragleave','drop'].forEach(ev => dropzone.addEventListener(ev, (e) => { e.preventDefault(); dropzone.classList.remove('dragover'); }));
+  dropzone.addEventListener('drop', (e) => { if (e.dataTransfer?.files?.[0]) loadImage(e.dataTransfer.files[0]); });
+
+  modeSelect.addEventListener('change', () => {
+    askWrap.style.display = modeSelect.value === 'Ask Question' ? 'block' : 'none';
+  });
+
+  analyzeBtn.addEventListener('click', async () => {
+    if (!currentImage || state.streaming) return;
+    const mode = modeSelect.value;
+    let prompt = '';
+    if (mode === 'Ask Question') {
+      const q = imgQuestion.value.trim();
+      if (!q) { toast('Tulis pertanyaan kamu dulu', 'error'); imgQuestion.focus(); return; }
+      prompt = q;
+    } else {
+      prompt = {
+        'Describe Image': 'Describe this image in detail: subject, setting, style, mood, and any notable details.',
+        'Read Text / OCR': 'Extract ALL visible text from this image exactly. Preserve structure and layout.',
+        'Analyze Objects': 'List and describe every recognizable object, person, and element in this image.',
+        'Analyze Colors': 'Analyze the color palette: dominant colors, contrasts, and mood.',
+        'Explain Diagram': 'Explain this diagram in detail: components, relationships, flow, and meaning.',
+        'Analyze Screenshot': 'Analyze this screenshot: identify UI elements, purpose, and any text or data visible.',
+      }[mode] || 'Describe this image.';
+    }
+
+    outputBody.innerHTML = `<div class="loader"><div class="loader-label"><span class="spinner"></span> Menganalisis gambar…</div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>`;
+    analyzeBtn.disabled = true; copyBtn.disabled = true; clearOutBtn.disabled = true;
+    analyzeBtn.innerHTML = '<span class="spinner"></span> Analyzing…';
+    state.streaming = true;
+    state.abortController = new AbortController();
+
+    try {
+      const result = await callVisionAI(prompt, currentImage.dataUrl, {
+        signal: state.abortController.signal,
+        maxTokens: 2000,
+      });
+      outputBody.innerHTML = renderMarkdown(result);
+      copyBtn.disabled = false; clearOutBtn.disabled = false;
+      toast('Analisis selesai', 'success', 1400);
+    } catch (err) {
+      const msg = err?.message || 'Terjadi kesalahan.';
+      outputBody.innerHTML = `<div class="output-error"><strong>Gagal:</strong> ${escapeHtml(msg)}</div>`;
+      toast(msg, 'error', 3600);
+    } finally {
+      state.streaming = false; state.abortController = null;
+      analyzeBtn.disabled = false; analyzeBtn.innerHTML = '<span>✨</span> Analyze Image';
+    }
+  });
+
+  clearBtn.addEventListener('click', clearImage);
+  copyBtn.addEventListener('click', () => copyText(outputBody.textContent || '', 'Hasil disalin'));
+  clearOutBtn.addEventListener('click', () => {
+    outputBody.innerHTML = `<div class="output-placeholder"><span class="op-icon">🖼️</span><span>Upload gambar, pilih mode, lalu klik Analyze.</span></div>`;
+    copyBtn.disabled = true; clearOutBtn.disabled = true;
+  });
+  outputBody.addEventListener('click', (e) => {
+    const codeBtn = e.target.closest('[data-copy-code]');
+    if (codeBtn) { const el = document.getElementById(codeBtn.dataset.copyCode); if (el) copyText(el.textContent, 'Kode disalin'); }
+  });
+}
+
+/* =========================================================
+   WORKFLOW BUILDER
+   ========================================================= */
+const WF_NODE_TYPES = [
+  { type:'input',            icon:'📥', label:'Input',                prompt:'(input user dimasukkan di panel Run)' },
+  { type:'chat',             icon:'💬', label:'AI Chat',              prompt:'{{input}}' },
+  { type:'writer',           icon:'✍️', label:'AI Writer',            prompt:'Write a well-structured piece about:\n\n{{input}}' },
+  { type:'summarizer',       icon:'📝', label:'Summarizer',           prompt:'Summarize the following into clear key points:\n\n{{input}}' },
+  { type:'translator',       icon:'🌍', label:'Translator',           prompt:'Translate the following to English. Preserve meaning and tone. Return only the translation:\n\n{{input}}' },
+  { type:'code',             icon:'💻', label:'Code Analyzer',        prompt:'Analyze this code. Explain what it does, find bugs, and suggest improvements:\n\n{{input}}' },
+  { type:'file',             icon:'📂', label:'File Analyzer',        prompt:'Analyze the following file content:\n\n{{input}}' },
+  { type:'image',            icon:'🖼️', label:'Image Analyzer',       prompt:'Describe and analyze this image: {{input}}' },
+  { type:'rewriter',         icon:'🔄', label:'Rewriter',             prompt:'Rewrite the following to be clearer and more engaging:\n\n{{input}}' },
+  { type:'brainstorm',       icon:'💡', label:'Brainstorm',           prompt:'Brainstorm 8 creative ideas about:\n\n{{input}}' },
+  { type:'prompt',           icon:'🎨', label:'Prompt Generator',     prompt:'Generate a detailed AI prompt for:\n\n{{input}}' },
+  { type:'custom',           icon:'⚙️', label:'Custom AI Prompt',     prompt:'{{input}}' },
+  { type:'output',           icon:'📤', label:'Output',               prompt:'' },
+];
+
+const wfState = {
+  name: 'Untitled Workflow',
+  nodes: [],
+  running: false,
+  abortController: null,
+  progress: {}, // nodeId -> { status:'pending'|'running'|'success'|'error', output:'', error:'' }
+  finalOutput: '',
+  editingNodeId: null,
+  userInput: '',
+};
+
+function wfNodeType(t){ return WF_NODE_TYPES.find(x => x.type === t) || WF_NODE_TYPES[0]; }
+function wfGenId(){ return 'wn' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+
+function wfAddNode(type){
+  const info = wfNodeType(type);
+  wfState.nodes.push({
+    id: wfGenId(),
+    type,
+    name: info.label,
+    prompt: info.prompt || '',
+    model: '',
+    temperature: 0.7,
+  });
+  renderWorkflowView();
+}
+
+function wfDeleteNode(id){
+  wfState.nodes = wfState.nodes.filter(n => n.id !== id);
+  renderWorkflowView();
+}
+
+function wfDuplicateNode(id){
+  const idx = wfState.nodes.findIndex(n => n.id === id);
+  if (idx < 0) return;
+  const src = wfState.nodes[idx];
+  const copy = { ...src, id: wfGenId(), name: src.name + ' (copy)' };
+  wfState.nodes.splice(idx + 1, 0, copy);
+  renderWorkflowView();
+}
+
+function wfMoveNode(id, dir){
+  const idx = wfState.nodes.findIndex(n => n.id === id);
+  if (idx < 0) return;
+  const target = idx + dir;
+  if (target < 0 || target >= wfState.nodes.length) return;
+  const [n] = wfState.nodes.splice(idx, 1);
+  wfState.nodes.splice(target, 0, n);
+  renderWorkflowView();
+}
+
+function wfClear(){
+  if (wfState.nodes.length && !confirm('Hapus semua step di workflow ini?')) return;
+  wfState.nodes = [];
+  wfState.progress = {};
+  wfState.finalOutput = '';
+  renderWorkflowView();
+  toast('Workflow dibersihkan', 'info', 1400);
+}
+
+function wfDefaultSample(){
+  wfState.name = 'Summarize → Translate → Rewrite';
+  wfState.nodes = [
+    { id: wfGenId(), type:'input', name:'Input Artikel', prompt:'', model:'', temperature: 0.7 },
+    { id: wfGenId(), type:'summarizer', name:'Summarizer', prompt:'Summarize the following into clear key points:\n\n{{input}}', model:'', temperature: 0.3 },
+    { id: wfGenId(), type:'translator', name:'Translator', prompt:'Translate the following into English. Preserve meaning and tone. Return only the translation:\n\n{{input}}', model:'', temperature: 0.2 },
+    { id: wfGenId(), type:'rewriter', name:'Rewriter', prompt:'Rewrite the following to be more engaging and clear:\n\n{{input}}', model:'', temperature: 0.6 },
+    { id: wfGenId(), type:'output', name:'Output', prompt:'', model:'', temperature: 0.7 },
+  ];
+  renderWorkflowView();
+}
+
+function wfSaveLocal(){
+  if (!wfState.nodes.length) { toast('Workflow kosong', 'error'); return; }
+  const name = prompt('Nama workflow:', wfState.name || 'Untitled') || 'Untitled';
+  wfState.name = name;
+  const wf = {
+    id: 'wf' + Date.now().toString(36),
+    name,
+    nodes: wfState.nodes.map(n => ({ ...n })),
+    savedAt: Date.now(),
+  };
+  state.savedWorkflows.unshift(wf);
+  saveWorkflowsLS();
+  toast('Workflow disimpan', 'success', 1500);
+  renderWorkflowView();
+}
+
+function wfLoadLocal(id){
+  const wf = state.savedWorkflows.find(w => w.id === id);
+  if (!wf) return;
+  wfState.name = wf.name;
+  wfState.nodes = wf.nodes.map(n => ({ ...n, id: n.id || wfGenId() }));
+  wfState.progress = {};
+  wfState.finalOutput = '';
+  renderWorkflowView();
+  toast(`Loaded: ${wf.name}`, 'success', 1400);
+}
+
+function wfDeleteLocal(id){
+  const wf = state.savedWorkflows.find(w => w.id === id);
+  if (!wf) return;
+  if (!confirm(`Hapus workflow "${wf.name}"?`)) return;
+  state.savedWorkflows = state.savedWorkflows.filter(w => w.id !== id);
+  saveWorkflowsLS();
+  renderWorkflowView();
+  toast('Workflow dihapus', 'info', 1300);
+}
+
+function wfExport(){
+  const data = { name: wfState.name, nodes: wfState.nodes.map(n => ({ ...n })) };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type:'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `hamz-workflow-${(wfState.name || 'workflow').replace(/[^\w\-]+/g, '_').slice(0, 40)}.json`;
+  a.click(); URL.revokeObjectURL(url);
+  toast('Workflow diexport', 'success', 1400);
+}
+
+function wfOpenImport(){
+  const m = $('#wfImportModal');
+  $('#wfImportText').value = '';
+  m.classList.add('show'); m.setAttribute('aria-hidden','false');
+}
+function wfCloseImport(){
+  const m = $('#wfImportModal');
+  m.classList.remove('show'); m.setAttribute('aria-hidden','true');
+}
+function wfDoImport(){
+  const txt = $('#wfImportText').value.trim();
+  if (!txt) { toast('Paste JSON dulu', 'error'); return; }
+  try {
+    const data = JSON.parse(txt);
+    if (!data || !Array.isArray(data.nodes)) throw new Error('Format tidak valid (butuh "nodes").');
+    wfState.name = String(data.name || 'Imported Workflow').slice(0, 80);
+    wfState.nodes = data.nodes.map(n => ({
+      id: wfGenId(),
+      type: n.type || 'custom',
+      name: String(n.name || 'Node').slice(0, 60),
+      prompt: String(n.prompt || ''),
+      model: String(n.model || ''),
+      temperature: typeof n.temperature === 'number' ? n.temperature : 0.7,
+    }));
+    wfState.progress = {};
+    wfState.finalOutput = '';
+    wfCloseImport();
+    renderWorkflowView();
+    toast('Workflow diimport', 'success', 1600);
+  } catch (err) { toast('JSON tidak valid: ' + err.message, 'error', 3600); }
+}
+
+function wfOpenEditor(nodeId){
+  const n = wfState.nodes.find(x => x.id === nodeId);
+  if (!n) return;
+  wfState.editingNodeId = nodeId;
+  $('#wfNodeName').value = n.name;
+  $('#wfNodeModel').value = n.model || '';
+  $('#wfNodePrompt').value = n.prompt || '';
+  $('#wfNodeTemp').value = n.temperature ?? 0.7;
+  $('#wfNodeTempLabel').textContent = Number(n.temperature ?? 0.7).toFixed(2);
+  const m = $('#wfEditorModal');
+  m.classList.add('show'); m.setAttribute('aria-hidden','false');
+}
+
+function wfCloseEditor(){
+  const m = $('#wfEditorModal');
+  m.classList.remove('show'); m.setAttribute('aria-hidden','true');
+  wfState.editingNodeId = null;
+}
+
+function wfSaveEditor(){
+  const id = wfState.editingNodeId;
+  const n = wfState.nodes.find(x => x.id === id);
+  if (!n) { wfCloseEditor(); return; }
+  n.name = $('#wfNodeName').value.trim() || n.name;
+  n.model = $('#wfNodeModel').value.trim();
+  n.prompt = $('#wfNodePrompt').value;
+  n.temperature = parseFloat($('#wfNodeTemp').value);
+  wfCloseEditor();
+  renderWorkflowView();
+  toast('Node disimpan', 'success', 1200);
+}
+
+async function wfRun(){
+  if (wfState.running) return;
+  if (!wfState.nodes.length) { toast('Tambahkan step dulu', 'error'); return; }
+
+  const inputNode = wfState.nodes.find(n => n.type === 'input');
+  const userInput = inputNode ? ($('#wfUserInput')?.value?.trim() || '') : (wfState.userInput || '');
+  if (inputNode && !userInput) { toast('Isi input dulu', 'error'); $('#wfUserInput')?.focus(); return; }
+
+  // Reset progress
+  wfState.progress = {};
+  for (const n of wfState.nodes) wfState.progress[n.id] = { status:'pending', output:'', error:'' };
+  wfState.finalOutput = '';
+  wfState.running = true;
+  wfState.abortController = new AbortController();
+  wfState.userInput = userInput;
+
+  renderWorkflowView();
+
+  let currentOutput = userInput;
+  let started = false;
+  let errorAt = null;
+
+  for (let i = 0; i < wfState.nodes.length; i++) {
+    const node = wfState.nodes[i];
+    if (wfState.abortController.signal.aborted) break;
+
+    // input node passes through
+    if (node.type === 'input') {
+      wfState.progress[node.id] = { status:'success', output: userInput, error:'' };
+      updateWfProgress();
+      continue;
+    }
+    if (node.type === 'output') {
+      wfState.progress[node.id] = { status:'success', output: currentOutput, error:'' };
+      wfState.finalOutput = currentOutput;
+      updateWfProgress();
+      continue;
+    }
+
+    started = true;
+    wfState.progress[node.id] = { status:'running', output:'', error:'' };
+    updateWfProgress();
+
+    try {
+      // Build prompt: replace {{input}} with current output, otherwise append
+      const tmpl = node.prompt || '{{input}}';
+      const prompt = tmpl.includes('{{input}}')
+        ? tmpl.replace(/\{\{input\}\}/g, currentOutput)
+        : `${tmpl}\n\n--- Input from previous step ---\n${currentOutput}`;
+
+      const messages = [
+        { role:'system', content:'You are a step in an AI workflow. Process the input and return ONLY the result of this step. Be concise and produce clean output that can be used by the next step.' },
+        { role:'user', content: prompt },
+      ];
+
+      const model = node.model || state.settings.model || OPENAI_MODEL;
+      const result = await callAI(messages, {
+        model,
+        temperature: node.temperature ?? 0.7,
+        maxTokens: 2048,
+        signal: wfState.abortController.signal,
+      });
+
+      wfState.progress[node.id] = { status:'success', output: result, error:'' };
+      currentOutput = result;
+      updateWfProgress();
+    } catch (err) {
+      const msg = err?.message || 'Step gagal.';
+      wfState.progress[node.id] = { status:'error', output:'', error: msg };
+      errorAt = node.id;
+      updateWfProgress();
+      toast(`Step "${node.name}" gagal: ${msg}`, 'error', 4000);
+      break;
+    }
+  }
+
+  wfState.running = false;
+  wfState.abortController = null;
+  updateWfProgress();
+
+  if (!errorAt && started) toast('Workflow selesai ✓', 'success', 1600);
+  else if (errorAt) toast('Workflow berhenti karena error', 'error', 2400);
+  else toast('Tidak ada step yang dijalankan', 'info', 1600);
+}
+
+function wfStop(){
+  if (wfState.abortController) wfState.abortController.abort();
+  wfState.running = false;
+  toast('Workflow dihentikan', 'info', 1300);
+  updateWfProgress();
+}
+
+async function wfRetryStep(nodeId){
+  if (wfState.running) return;
+  const idx = wfState.nodes.findIndex(n => n.id === nodeId);
+  if (idx < 0) return;
+
+  const inputNode = wfState.nodes.find(n => n.type === 'input');
+  let currentOutput = inputNode ? (wfState.userInput || '') : '';
+
+  // Rebuild output from all successful steps before this one
+  for (let i = 0; i < idx; i++) {
+    const n = wfState.nodes[i];
+    const p = wfState.progress[n.id];
+    if (p && p.status === 'success' && p.output) currentOutput = p.output;
+  }
+
+  const node = wfState.nodes[idx];
+  wfState.progress[node.id] = { status:'running', output:'', error:'' };
+  wfState.running = true;
+  wfState.abortController = new AbortController();
+  updateWfProgress();
+
+  try {
+    const tmpl = node.prompt || '{{input}}';
+    const prompt = tmpl.includes('{{input}}')
+      ? tmpl.replace(/\{\{input\}\}/g, currentOutput)
+      : `${tmpl}\n\n--- Input from previous step ---\n${currentOutput}`;
+    const messages = [
+      { role:'system', content:'You are a step in an AI workflow. Process the input and return ONLY the result of this step.' },
+      { role:'user', content: prompt },
+    ];
+    const model = node.model || state.settings.model || OPENAI_MODEL;
+    const result = await callAI(messages, { model, temperature: node.temperature ?? 0.7, maxTokens: 2048, signal: wfState.abortController.signal });
+    wfState.progress[node.id] = { status:'success', output: result, error:'' };
+    toast(`Retry berhasil untuk "${node.name}"`, 'success', 1600);
+  } catch (err) {
+    wfState.progress[node.id] = { status:'error', output:'', error: err?.message || 'Gagal.' };
+    toast(`Retry gagal: ${err.message}`, 'error', 3200);
+  } finally {
+    wfState.running = false;
+    wfState.abortController = null;
+    updateWfProgress();
+  }
+}
+
+function updateWfProgress(){
+  const el = $('#wfProgress');
+  if (!el) return;
+  const nodes = wfState.nodes;
+  if (!nodes.length) { el.innerHTML = ''; return; }
+  el.innerHTML = nodes.map((n, i) => {
+    const p = wfState.progress[n.id] || { status:'pending' };
+    const icon = p.status === 'success' ? '✓' : p.status === 'running' ? '⟳' : p.status === 'error' ? '✕' : '○';
+    const info = wfNodeType(n.type);
+    let extra = '';
+    if (p.status === 'error' && p.error) extra = `<div style="font-size:11.5px;color:var(--danger);margin-top:4px">${escapeHtml(p.error)}</div>`;
+    else if (p.status === 'success' && p.output) {
+      const isOutputNode = n.type === 'output';
+      if (isOutputNode) {
+        extra = `<div class="wf-step-output" style="max-height:300px">${escapeHtml(p.output.slice(0, 2000))}${p.output.length > 2000 ? '\n…' : ''}</div>`;
+      } else {
+        extra = `<details style="margin-top:6px"><summary style="cursor:pointer;font-size:12px;color:var(--text-mute)">Lihat output</summary><div class="wf-step-output">${escapeHtml(p.output.slice(0, 1200))}${p.output.length > 1200 ? '\n…' : ''}</div></details>`;
+      }
+    }
+    return `
+      <div class="wf-progress-step ${p.status}">
+        <div class="wps-icon">${icon}</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-weight:600">${escapeHtml(n.name)} <span style="font-size:11px;color:var(--text-mute);font-weight:500">${info.icon}</span></div>
+          ${extra}
+        </div>
+        ${p.status === 'error' ? `<button class="mini-btn" data-wf-retry="${n.id}" style="flex-shrink:0">Retry</button>` : ''}
+      </div>`;
+  }).join('');
+
+  el.querySelectorAll('[data-wf-retry]').forEach(btn => {
+    btn.addEventListener('click', () => wfRetryStep(btn.dataset.wfRetry));
+  });
+}
+
+function renderWorkflowView(){
+  const isFav = state.favorites.has('workflow');
+  const saved = state.savedWorkflows;
+
+  $('#app').innerHTML = `
+    <section class="view active">
+      <div class="container">
+        <div class="page-head">
+          <h1>🧩 AI Workflow Builder</h1>
+          <p>Buat alur AI visual. Output step sebelumnya otomatis menjadi input step berikutnya.</p>
+        </div>
+
+        <div class="section" style="margin-top:22px">
+          <div class="wf-shell">
+            <div class="wf-toolbar">
+              <input class="wf-name-input" type="text" id="wfNameInput" value="${escapeHtml(wfState.name)}" placeholder="Nama workflow..." />
+              <button class="mini-btn" id="wfSampleBtn">+ Contoh</button>
+              <button class="mini-btn" id="wfSaveBtn">💾 Save</button>
+              <button class="mini-btn" id="wfExportBtn">⬇ Export</button>
+              <button class="mini-btn" id="wfImportBtn">⬆ Import</button>
+              <button class="mini-btn btn-danger" id="wfClearBtn">Clear</button>
+            </div>
+
+            <div class="wf-canvas">
+              <div id="wfNodesWrap"></div>
+              <div class="wf-add-row">
+                <select id="wfAddTypeSelect">
+                  ${WF_NODE_TYPES.filter(t => t.type !== 'input' && t.type !== 'output').map(t => `<option value="${t.type}">${t.icon} ${t.label}</option>`).join('')}
+                </select>
+                <button class="btn btn-sm btn-primary" id="wfAddBtn">+ Add Step</button>
+              </div>
+            </div>
+
+            <div class="wf-run-panel">
+              <div class="field" style="margin:0">
+                <label for="wfUserInput">Input Awal (untuk node Input)</label>
+                <textarea class="input" id="wfUserInput" rows="4" placeholder="Contoh: Artikel tentang teknologi AI...">${escapeHtml(wfState.userInput || '')}</textarea>
+              </div>
+              <div class="form-actions" style="margin:0">
+                <button class="btn btn-primary" id="wfRunBtn"><span>▶</span> Run Workflow</button>
+                <button class="btn btn-danger" id="wfStopBtn" disabled>Stop</button>
+                <button class="btn" id="wfCopyResultBtn" disabled>Copy Result</button>
+              </div>
+              <div class="wf-progress" id="wfProgress"></div>
+            </div>
+
+            ${saved.length ? `
+            <div class="panel" style="padding:16px">
+              <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-mute);margin-bottom:10px">Saved Workflows (${saved.length})</div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                ${saved.map(w => `
+                  <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:rgba(0,0,0,.15);border:1px solid var(--border)">
+                    <div style="flex:1;min-width:0">
+                      <div style="font-size:13.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${escapeHtml(w.name)}</div>
+                      <div style="font-size:11.5px;color:var(--text-mute);margin-top:2px">${w.nodes.length} step · ${fmtDate(w.savedAt)}</div>
+                    </div>
+                    <button class="mini-btn" data-wf-load="${w.id}">Load</button>
+                    <button class="mini-btn btn-danger" data-wf-del="${w.id}">✕</button>
+                  </div>`).join('')}
+              </div>
+            </div>` : ''}
+
+            <div class="info-box" style="font-size:12.3px">
+              💡 Workflow disimpan di localStorage browser kamu. API key tidak pernah disimpan.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>`;
+
+  // Render nodes
+  renderWfNodes();
+
+  // Wire toolbar
+  $('#wfNameInput').addEventListener('input', (e) => { wfState.name = e.target.value; });
+  $('#wfSampleBtn').addEventListener('click', wfDefaultSample);
+  $('#wfSaveBtn').addEventListener('click', wfSaveLocal);
+  $('#wfExportBtn').addEventListener('click', wfExport);
+  $('#wfImportBtn').addEventListener('click', wfOpenImport);
+  $('#wfClearBtn').addEventListener('click', wfClear);
+  $('#wfAddBtn').addEventListener('click', () => {
+    const t = $('#wfAddTypeSelect').value;
+    wfAddNode(t);
+  });
+  $('#wfRunBtn').addEventListener('click', wfRun);
+  $('#wfStopBtn').addEventListener('click', wfStop);
+  $('#wfCopyResultBtn').addEventListener('click', () => {
+    const out = wfState.finalOutput || '(kosong)';
+    copyText(out, 'Hasil workflow disalin');
+  });
+
+  // Saved workflows
+  $$('[data-wf-load]').forEach(btn => btn.addEventListener('click', () => wfLoadLocal(btn.dataset.wfLoad)));
+  $$('[data-wf-del]').forEach(btn => btn.addEventListener('click', () => wfDeleteLocal(btn.dataset.wfDel)));
+
+  // Update progress + run buttons
+  updateWfProgress();
+  const runBtn = $('#wfRunBtn');
+  const stopBtn = $('#wfStopBtn');
+  const copyResBtn = $('#wfCopyResultBtn');
+  if (runBtn) runBtn.disabled = wfState.running || !wfState.nodes.length;
+  if (stopBtn) stopBtn.disabled = !wfState.running;
+  if (copyResBtn) copyResBtn.disabled = !wfState.finalOutput;
+}
+
+function renderWfNodes(){
+  const wrap = $('#wfNodesWrap');
+  if (!wrap) return;
+  if (!wfState.nodes.length) {
+    wrap.innerHTML = `<div class="wf-empty"><div class="wf-e-icon">🧩</div><h3>Belum ada step</h3><p>Klik "+ Contoh" untuk mulai, atau tambahkan step di bawah.</p></div>`;
+    return;
+  }
+  wrap.innerHTML = wfState.nodes.map((n, i) => {
+    const info = wfNodeType(n.type);
+    const p = wfState.progress[n.id] || {};
+    const cls = ['wf-node'];
+    if (p.status === 'success') cls.push('success');
+    if (p.status === 'running') cls.push('running');
+    if (p.status === 'error') cls.push('error');
+    const isInput = n.type === 'input';
+    const isOutput = n.type === 'output';
+    const preview = n.prompt ? n.prompt.replace(/\n/g, ' ').slice(0, 120) : (isInput ? 'Nilai dari panel Run di bawah' : isOutput ? 'Menampilkan hasil akhir' : '');
+    return `
+      <div class="${cls.join(' ')}" data-wf-id="${n.id}">
+        <div class="wf-step-num">${i + 1}</div>
+        <div class="wf-body">
+          <div class="wf-title">
+            <span>${info.icon} ${escapeHtml(n.name)}</span>
+            <span class="wf-type-chip">${escapeHtml(info.label)}</span>
+          </div>
+          ${preview ? `<div class="wf-preview">${escapeHtml(preview)}</div>` : ''}
+        </div>
+        <div class="wf-actions">
+          <button data-wf-up="${n.id}" title="Naik" ${i === 0 ? 'disabled' : ''}>↑</button>
+          <button data-wf-down="${n.id}" title="Turun" ${i === wfState.nodes.length - 1 ? 'disabled' : ''}>↓</button>
+          <button data-wf-dup="${n.id}" title="Duplicate">⧉</button>
+          <button data-wf-edit="${n.id}" title="Edit">✎</button>
+          ${!isInput && !isOutput ? `<button class="wf-del" data-wf-del-node="${n.id}" title="Hapus">✕</button>` : `<button class="wf-del" data-wf-del-node="${n.id}" title="Hapus">✕</button>`}
+        </div>
+        <div class="wf-connector"></div>
+      </div>`;
+  }).join('');
+
+  wrap.querySelectorAll('[data-wf-up]').forEach(b => b.addEventListener('click', (e) => { e.stopPropagation(); wfMoveNode(b.dataset.wfUp, -1); }));
+  wrap.querySelectorAll('[data-wf-down]').forEach(b => b.addEventListener('click', (e) => { e.stopPropagation(); wfMoveNode(b.dataset.wfDown, 1); }));
+  wrap.querySelectorAll('[data-wf-dup]').forEach(b => b.addEventListener('click', (e) => { e.stopPropagation(); wfDuplicateNode(b.dataset.wfDup); }));
+  wrap.querySelectorAll('[data-wf-edit]').forEach(b => b.addEventListener('click', (e) => { e.stopPropagation(); wfOpenEditor(b.dataset.wfEdit); }));
+  wrap.querySelectorAll('[data-wf-del-node]').forEach(b => b.addEventListener('click', (e) => { e.stopPropagation(); wfDeleteNode(b.dataset.wfDelNode); }));
+}
+
+/* =========================================================
    VIEWS — ABOUT
-   ========================================================================= */
-function renderAbout() {
+   ========================================================= */
+function renderAbout(){
   const configured = isKeyConfigured();
   $('#app').innerHTML = `
     <section class="view active">
@@ -1965,126 +3174,125 @@ function renderAbout() {
             <div class="warn-box">
               <strong>API key di frontend bisa dilihat siapa saja.</strong><br>
               Kalau kamu host file ini di GitHub Pages dan orang lain membukanya,
-              mereka bisa melihat API key kamu lewat DevTools → Network tab.
-              Hanya pakai key yang kamu siap kehilangan, atau untuk eksperimen lokal.
-              Untuk produksi, gunakan backend serverless yang menyimpan key sebagai secret.
+              mereka bisa melihat API key kamu lewat DevTools. Hanya pakai key yang kamu siap kehilangan.
+              Untuk produksi, gunakan backend serverless.
             </div>
           </div>
 
           <div class="info-card">
             <h2>Status konfigurasi</h2>
-            <p>${configured
-              ? `✅ API key terisi · Model: <code>${escapeHtml(state.settings.model)}</code>`
-              : '❌ API key belum diisi. Semua tool akan menampilkan error sampai kamu mengisi <code>OPENAI_API_KEY</code>.'}</p>
+            <p>${configured ? `✅ API key terisi · Text: <code>${escapeHtml(modelLabel(state.settings.model))}</code> · Vision: <code>${escapeHtml(modelLabel(state.settings.visionModel))}</code>` : '❌ API key belum diisi.'}</p>
+          </div>
+
+          <div class="info-card">
+            <h2>🔒 Privasi File</h2>
+            <ul class="feature-list">
+              <li><span class="fi">✓</span> File yang di-upload hanya dikirim ke endpoint AI untuk dianalisis.</li>
+              <li><span class="fi">✓</span> File <strong>tidak dieksekusi</strong> oleh website.</li>
+              <li><span class="fi">✓</span> File <strong>tidak disimpan</strong> ke localStorage.</li>
+              <li><span class="fi">✓</span> HTML yang di-upload ditampilkan sebagai teks/kode, bukan dijalankan.</li>
+              <li><span class="fi">✓</span> API key tidak pernah disimpan di localStorage.</li>
+              <li><span class="fi">✓</span> API key hanya dikirim ke endpoint Groq yang memang diperlukan.</li>
+            </ul>
           </div>
 
           <div class="info-card">
             <h2>Privasi</h2>
-            <p>API key tidak disimpan di <code>localStorage</code>. Favorites, chat history, recently used, dan pengaturan disimpan di browser kamu sendiri.</p>
+            <p>Favorites, chat history, recent tools, workflows, dan pengaturan disimpan di browser kamu sendiri (localStorage).</p>
           </div>
         </div>
       </div>
     </section>`;
 }
 
-/* =========================================================================
+/* =========================================================
    TOOL ROUTER (dispatch)
-   ========================================================================= */
-function renderToolDetail(id) {
+   ========================================================= */
+function renderToolDetail(id){
   const tool = toolById(id);
   if (!tool) {
-    $('#app').innerHTML = `
-      <section class="view active">
-        <div class="container">
-          <div class="tool-detail">
-            <a class="back-link" href="#/tools">← Kembali ke tools</a>
-            <div class="empty-state">
-              <div class="empty-icon">🤖</div>
-              <h3>Tool tidak ditemukan</h3>
-              <p>Tool yang kamu cari tidak ada.</p>
-            </div>
-          </div>
-        </div>
-      </section>`;
+    $('#app').innerHTML = `<section class="view active"><div class="container"><div class="tool-detail"><a class="back-link" href="#/tools">← Kembali ke tools</a><div class="empty-state"><div class="empty-icon">🤖</div><h3>Tool tidak ditemukan</h3></div></div></div></section>`;
     return;
   }
   if (tool.type === 'chat') {
-    // AI Chat → create new chat then jump
-    if (!state.chats.length) {
-      const nid = createNewChat();
-      location.hash = `#/chat/${nid}`;
-    } else {
-      location.hash = '#/history';
-    }
+    if (!state.chats.length) { const nid = createNewChat(); location.hash = `#/chat/${nid}`; }
+    else location.hash = '#/history';
     return;
   }
+  if (tool.type === 'workflow') { location.hash = '#/workflow'; return; }
+  if (tool.type === 'file') { renderFileAnalyzerView(); return; }
+  if (tool.type === 'image') { renderImageAnalyzerView(); return; }
   renderFormView(tool);
 }
 
-/* =========================================================================
+/* =========================================================
    SETTINGS MODAL
-   ========================================================================= */
-function openSettings() {
+   ========================================================= */
+function openSettings(){
   const m = $('#settingsModal');
   $('#setModel').value = state.settings.model;
+  $('#setVisionModel').value = state.settings.visionModel;
   $('#setTemp').value = state.settings.temperature;
   $('#tempLabel').textContent = Number(state.settings.temperature).toFixed(2);
   $('#setMaxTokens').value = state.settings.maxTokens;
   $('#setSysPrompt').value = state.settings.systemPrompt || '';
-  m.classList.add('show');
-  m.setAttribute('aria-hidden', 'false');
+  m.classList.add('show'); m.setAttribute('aria-hidden','false');
   document.body.style.overflow = 'hidden';
 }
-
-function closeSettings() {
+function closeSettings(){
   const m = $('#settingsModal');
-  m.classList.remove('show');
-  m.setAttribute('aria-hidden', 'true');
+  m.classList.remove('show'); m.setAttribute('aria-hidden','true');
   document.body.style.overflow = '';
 }
 
-function wireSettings() {
+function wireSettings(){
   $('#settingsBtn').addEventListener('click', openSettings);
   const navBtn = $('#settingsBtnNav');
   if (navBtn) navBtn.addEventListener('click', openSettings);
   $('#closeSettings').addEventListener('click', closeSettings);
-  $('#settingsModal').addEventListener('click', (e) => {
-    if (e.target === $('#settingsModal')) closeSettings();
-  });
+  $('#settingsModal').addEventListener('click', (e) => { if (e.target === $('#settingsModal')) closeSettings(); });
 
-  $('#setTemp').addEventListener('input', (e) => {
-    $('#tempLabel').textContent = Number(e.target.value).toFixed(2);
-  });
+  $('#setTemp').addEventListener('input', (e) => { $('#tempLabel').textContent = Number(e.target.value).toFixed(2); });
 
   $('#saveSettings').addEventListener('click', () => {
     const model = $('#setModel').value.trim();
+    const visionModel = $('#setVisionModel').value.trim();
     const temperature = parseFloat($('#setTemp').value);
     let maxTokens = parseInt($('#setMaxTokens').value, 10);
     if (!Number.isFinite(maxTokens) || maxTokens < 128) maxTokens = 128;
     if (maxTokens > 8192) maxTokens = 8192;
     const systemPrompt = $('#setSysPrompt').value;
-
-    state.settings = { model: model || OPENAI_MODEL, temperature, maxTokens, systemPrompt };
-    saveSettings();
+    state.settings = { model: model || OPENAI_MODEL, visionModel: visionModel || OPENAI_VISION_MODEL_DEFAULT, temperature, maxTokens, systemPrompt };
+    saveSettingsLS();
     closeSettings();
     toast('Settings disimpan', 'success', 1500);
-    // refresh model label if on chat page
-    const lbl = $('#modelLabel');
-    if (lbl) lbl.textContent = state.settings.model;
+    const lbl = $('#modelLabel'); if (lbl) lbl.textContent = modelLabel(state.settings.model);
   });
 
   $('#resetSettings').addEventListener('click', () => {
     state.settings = { ...DEFAULT_SETTINGS };
-    saveSettings();
-    openSettings();
+    saveSettingsLS(); openSettings();
     toast('Settings direset', 'info', 1400);
   });
+
+  // Workflow editor modal
+  $('#closeWfEditor').addEventListener('click', wfCloseEditor);
+  $('#cancelWfEditor').addEventListener('click', wfCloseEditor);
+  $('#wfEditorModal').addEventListener('click', (e) => { if (e.target === $('#wfEditorModal')) wfCloseEditor(); });
+  $('#saveWfEditor').addEventListener('click', wfSaveEditor);
+  $('#wfNodeTemp').addEventListener('input', (e) => { $('#wfNodeTempLabel').textContent = Number(e.target.value).toFixed(2); });
+
+  // Import modal
+  $('#closeWfImport').addEventListener('click', wfCloseImport);
+  $('#cancelWfImport').addEventListener('click', wfCloseImport);
+  $('#wfImportModal').addEventListener('click', (e) => { if (e.target === $('#wfImportModal')) wfCloseImport(); });
+  $('#confirmWfImport').addEventListener('click', wfDoImport);
 }
 
-/* =========================================================================
+/* =========================================================
    ROUTER
-   ========================================================================= */
-function parseRoute() {
+   ========================================================= */
+function parseRoute(){
   const raw = (location.hash || '#/home').slice(1);
   const [path, queryStr] = raw.split('?');
   const parts = path.split('/').filter(Boolean);
@@ -2092,13 +3300,15 @@ function parseRoute() {
   return { name: parts[0] || 'home', param: parts[1] || null, params };
 }
 
-function setActiveNav(name) {
+function setActiveNav(name){
   $$('[data-nav]').forEach(a => a.classList.toggle('active', a.dataset.nav === name));
 }
 
-function router() {
+function router(){
   const { name, param, params } = parseRoute();
   closeDrawer();
+  closeSettings();
+  wfCloseEditor();
   window.scrollTo({ top: 0, behavior: 'auto' });
 
   switch (name) {
@@ -2106,6 +3316,7 @@ function router() {
     case 'favorites':  renderFavoritesView();   setActiveNav('favorites'); break;
     case 'history':    renderHistoryView();     setActiveNav('history'); break;
     case 'chat':       renderChatDetailView(param); setActiveNav('history'); break;
+    case 'workflow':   renderWorkflowView();    setActiveNav('workflow'); break;
     case 'about':      renderAbout();           setActiveNav(''); break;
     case 'tool':       renderToolDetail(param); setActiveNav('tools'); break;
     case 'home':
@@ -2113,61 +3324,34 @@ function router() {
   }
 }
 
-/* =========================================================================
+/* =========================================================
    GLOBAL EVENTS
-   ========================================================================= */
+   ========================================================= */
 document.addEventListener('click', (e) => {
-  // Favorite button (highest priority)
   const favBtn = e.target.closest('[data-fav]');
-  if (favBtn) {
-    e.preventDefault(); e.stopPropagation();
-    toggleFavorite(favBtn.dataset.fav);
-    return;
-  }
-  // Open tool
+  if (favBtn) { e.preventDefault(); e.stopPropagation(); toggleFavorite(favBtn.dataset.fav); return; }
+
   const openEl = e.target.closest('[data-open]');
-  if (openEl) {
-    e.preventDefault();
-    location.hash = `#/tool/${openEl.dataset.open}`;
-    return;
-  }
-  // Chat item open
+  if (openEl) { e.preventDefault(); location.hash = `#/tool/${openEl.dataset.open}`; return; }
+
   const chatOpen = e.target.closest('[data-chat-open]');
   if (chatOpen && !e.target.closest('[data-chat-rename]') && !e.target.closest('[data-chat-delete]')) {
-    location.hash = `#/chat/${chatOpen.dataset.chatOpen}`;
-    return;
+    location.hash = `#/chat/${chatOpen.dataset.chatOpen}`; return;
   }
-  // Chat rename
   const chatRen = e.target.closest('[data-chat-rename]');
-  if (chatRen) {
-    e.preventDefault(); e.stopPropagation();
-    renameChat(chatRen.dataset.chatRename);
-    return;
-  }
-  // Chat delete
+  if (chatRen) { e.preventDefault(); e.stopPropagation(); renameChat(chatRen.dataset.chatRename); return; }
   const chatDel = e.target.closest('[data-chat-delete]');
-  if (chatDel) {
-    e.preventDefault(); e.stopPropagation();
-    deleteChat(chatDel.dataset.chatDelete);
-    return;
-  }
-  // Copy code
+  if (chatDel) { e.preventDefault(); e.stopPropagation(); deleteChat(chatDel.dataset.chatDelete); return; }
+
   const codeCopy = e.target.closest('[data-copy-code]');
-  if (codeCopy) {
-    const el = document.getElementById(codeCopy.dataset.copyCode);
-    if (el) copyText(el.textContent, 'Kode disalin');
-    return;
-  }
+  if (codeCopy) { const el = document.getElementById(codeCopy.dataset.copyCode); if (el) copyText(el.textContent, 'Kode disalin'); return; }
 });
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') { closeDrawer(); closeSettings(); }
+  if (e.key === 'Escape') { closeDrawer(); closeSettings(); wfCloseEditor(); wfCloseImport(); }
   if (e.key === 'Enter' || e.key === ' ') {
     const card = e.target.closest?.('.tool-card');
-    if (card && e.target === card) {
-      e.preventDefault();
-      location.hash = `#/tool/${card.dataset.open}`;
-    }
+    if (card && e.target === card) { e.preventDefault(); location.hash = `#/tool/${card.dataset.open}`; }
   }
 });
 
@@ -2183,10 +3367,10 @@ $('#themeToggle').addEventListener('click', () => {
 
 $('#menuBtn').addEventListener('click', openDrawer);
 
-/* =========================================================================
+/* =========================================================
    INIT
-   ========================================================================= */
-function init() {
+   ========================================================= */
+function init(){
   applyTheme();
   renderDrawer();
   renderFooter();
@@ -2195,9 +3379,7 @@ function init() {
   if (!location.hash) location.hash = '#/home';
   router();
 
-  if (!isKeyConfigured()) {
-    setTimeout(() => toast('API key Groq belum diisi. Lihat halaman About.', 'error', 5000), 900);
-  }
+  if (!isKeyConfigured()) setTimeout(() => toast('API key Groq belum diisi. Lihat halaman About.', 'error', 5000), 900);
 }
 
 init();
